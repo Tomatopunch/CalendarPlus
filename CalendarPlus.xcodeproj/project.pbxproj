@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A1DA87A237EB53300EBA8EF /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1DA879237EB53300EBA8EF /* TabBarViewController.swift */; };
+		5AEE8F9F237EA90E00B26F12 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEE8F9E237EA90E00B26F12 /* HomeViewController.swift */; };
+		5AEE8FA7237EA95100B26F12 /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEE8FA6237EA95100B26F12 /* CreateEventViewController.swift */; };
+		5AEE8FA9237EA95C00B26F12 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEE8FA8237EA95C00B26F12 /* EventViewController.swift */; };
 		7E674863237C4E6A0092DA82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E674862237C4E6A0092DA82 /* AppDelegate.swift */; };
 		7E674865237C4E6A0092DA82 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E674864237C4E6A0092DA82 /* SceneDelegate.swift */; };
 		7E674867237C4E6A0092DA82 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E674866237C4E6A0092DA82 /* ViewController.swift */; };
@@ -35,6 +39,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5A1DA879237EB53300EBA8EF /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		5AEE8F9E237EA90E00B26F12 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		5AEE8FA6237EA95100B26F12 /* CreateEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventViewController.swift; sourceTree = "<group>"; };
+		5AEE8FA8237EA95C00B26F12 /* EventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 		7E67485F237C4E6A0092DA82 /* CalendarPlus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalendarPlus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E674862237C4E6A0092DA82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7E674864237C4E6A0092DA82 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +114,10 @@
 				7E67486B237C4E6B0092DA82 /* Assets.xcassets */,
 				7E67486D237C4E6B0092DA82 /* LaunchScreen.storyboard */,
 				7E674870237C4E6B0092DA82 /* Info.plist */,
+				5AEE8F9E237EA90E00B26F12 /* HomeViewController.swift */,
+				5AEE8FA6237EA95100B26F12 /* CreateEventViewController.swift */,
+				5AEE8FA8237EA95C00B26F12 /* EventViewController.swift */,
+				5A1DA879237EB53300EBA8EF /* TabBarViewController.swift */,
 			);
 			path = CalendarPlus;
 			sourceTree = "<group>";
@@ -262,6 +274,10 @@
 				7E674867237C4E6A0092DA82 /* ViewController.swift in Sources */,
 				7E674863237C4E6A0092DA82 /* AppDelegate.swift in Sources */,
 				7E674865237C4E6A0092DA82 /* SceneDelegate.swift in Sources */,
+				5AEE8FA9237EA95C00B26F12 /* EventViewController.swift in Sources */,
+				5A1DA87A237EB53300EBA8EF /* TabBarViewController.swift in Sources */,
+				5AEE8F9F237EA90E00B26F12 /* HomeViewController.swift in Sources */,
+				5AEE8FA7237EA95100B26F12 /* CreateEventViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
