@@ -7,3 +7,19 @@
 //
 
 import Foundation
+import UIKit
+
+//this class creates an Event object including the following below.
+
+class Event {
+    
+    var eventImage: UIImage
+    var eventDate: String
+    var eventTitle: String
+    
+    init(eventImage: UIImage, eventDate: String, eventTitle: String){
+        self.eventImage = eventImage
+        self.eventDate = eventDate
+        self.eventTitle = eventTitle
+    }
+}
