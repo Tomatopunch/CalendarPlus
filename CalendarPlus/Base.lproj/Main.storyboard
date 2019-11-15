@@ -107,20 +107,57 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter EventName:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L5s-Fm-Cmu">
+                                <rect key="frame" x="40" y="209" width="334" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zvg-Ys-eUp">
+                                <rect key="frame" x="183" y="314" width="49" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="UIButtonSumbitEvent:" destination="GCx-3J-qz7" eventType="touchUpInside" id="Tz7-tr-1Op"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Si8-RK-eFf">
+                                <rect key="frame" x="87" y="612" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j08-OD-cBJ">
+                                <rect key="frame" x="40" y="240" width="334" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="lm2-Mh-O7f" firstAttribute="trailing" secondItem="L5s-Fm-Cmu" secondAttribute="trailing" constant="40" id="1FW-xp-d1h"/>
+                            <constraint firstItem="j08-OD-cBJ" firstAttribute="leading" secondItem="lm2-Mh-O7f" secondAttribute="leading" constant="40" id="4li-g9-WdU"/>
                             <constraint firstItem="hPO-HU-YId" firstAttribute="top" secondItem="lm2-Mh-O7f" secondAttribute="top" constant="60" id="641-6B-idL"/>
+                            <constraint firstItem="L5s-Fm-Cmu" firstAttribute="leading" secondItem="lm2-Mh-O7f" secondAttribute="leading" constant="40" id="DGu-xX-CAQ"/>
                             <constraint firstItem="lm2-Mh-O7f" firstAttribute="trailing" secondItem="hPO-HU-YId" secondAttribute="trailing" constant="40" id="TJy-DF-0nb"/>
+                            <constraint firstItem="j08-OD-cBJ" firstAttribute="top" secondItem="L5s-Fm-Cmu" secondAttribute="bottom" constant="10" id="erm-QS-RyU"/>
                             <constraint firstItem="hPO-HU-YId" firstAttribute="leading" secondItem="lm2-Mh-O7f" secondAttribute="leading" constant="40" id="f9I-Cn-7cy"/>
+                            <constraint firstItem="L5s-Fm-Cmu" firstAttribute="top" secondItem="hPO-HU-YId" secondAttribute="bottom" constant="40" id="ru4-Th-xGR"/>
+                            <constraint firstItem="lm2-Mh-O7f" firstAttribute="trailing" secondItem="j08-OD-cBJ" secondAttribute="trailing" constant="40" id="uGB-E9-TLE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lm2-Mh-O7f"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="K3v-6I-bp4"/>
+                    <connections>
+                        <outlet property="UITextInputEventName" destination="j08-OD-cBJ" id="yhL-Uu-gao"/>
+                        <outlet property="UITextViewDisplayTextInput" destination="Si8-RK-eFf" id="fOL-hK-Qv2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WnK-pW-uDE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1445" y="1107"/>
+            <point key="canvasLocation" x="1444.9275362318842" y="1106.9196428571429"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="qvJ-JY-6oF">

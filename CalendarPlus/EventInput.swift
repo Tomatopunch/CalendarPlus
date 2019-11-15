@@ -7,9 +7,15 @@
 //
 
 import Foundation
-
+import UIKit
 class EventInformation{
+    var eventName: String
     
     
     
+    init(eventName: String){
+        self.eventName = eventName
+    }
+    
+
 }

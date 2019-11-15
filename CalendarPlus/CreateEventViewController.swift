@@ -10,21 +10,46 @@ import UIKit
 
 class CreateEventViewController: UIViewController {
 
+    @IBOutlet weak var UITextInputEventName: UITextField!
+    
+    @IBOutlet weak var UITextViewDisplayTextInput: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        configureTextFields()
+        configureTapOnScreen()
+        
+    }
+    // configureTextFields makes the textinputs editable, for example adding dismiss options for keyboard
+    private func configureTextFields() {
+        UITextInputEventName.delegate = self
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // function for dismissing keyboard when tapping outside of keyboard
+    private func configureTapOnScreen(){
+        
+        let tapOnScreen = UITapGestureRecognizer(target: self, action: #selector(CreateEventViewController.handleTap))
+        view.addGestureRecognizer(tapOnScreen)
+        
     }
-    */
+    @objc func handleTap(){
+        view.endEditing(true)
+        
+    }
+    
+     
+    @IBAction func UIButtonSumbitEvent(_ sender: Any) {
+        UITextViewDisplayTextInput.text = "Event name: \(UITextInputEventName.text!)"
+        view.endEditing(true)
+    }
+  
 
+}
+
+extension CreateEventViewController: UITextFieldDelegate {
+    
+    // This function makes the return button close the keyboard
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }
