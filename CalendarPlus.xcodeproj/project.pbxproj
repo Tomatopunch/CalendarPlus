@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		5A1DA87A237EB53300EBA8EF /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1DA879237EB53300EBA8EF /* TabBarViewController.swift */; };
+		5A1DA87C237EBA5900EBA8EF /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1DA87B237EBA5900EBA8EF /* EventCell.swift */; };
+		5A1DA87E237EBDEC00EBA8EF /* EventOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1DA87D237EBDEC00EBA8EF /* EventOutput.swift */; };
+		5A2A2B2B2381527400481608 /* EventDetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2A2B2A2381527400481608 /* EventDetailedViewController.swift */; };
 		5AEE8F9F237EA90E00B26F12 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEE8F9E237EA90E00B26F12 /* HomeViewController.swift */; };
 		5AEE8FA7237EA95100B26F12 /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEE8FA6237EA95100B26F12 /* CreateEventViewController.swift */; };
 		5AEE8FA9237EA95C00B26F12 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEE8FA8237EA95C00B26F12 /* EventViewController.swift */; };
@@ -41,6 +44,9 @@
 
 /* Begin PBXFileReference section */
 		5A1DA879237EB53300EBA8EF /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		5A1DA87B237EBA5900EBA8EF /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
+		5A1DA87D237EBDEC00EBA8EF /* EventOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventOutput.swift; sourceTree = "<group>"; };
+		5A2A2B2A2381527400481608 /* EventDetailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailedViewController.swift; sourceTree = "<group>"; };
 		5AEE8F9E237EA90E00B26F12 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		5AEE8FA6237EA95100B26F12 /* CreateEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventViewController.swift; sourceTree = "<group>"; };
 		5AEE8FA8237EA95C00B26F12 /* EventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
@@ -118,7 +124,10 @@
 				7E674870237C4E6B0092DA82 /* Info.plist */,
 				5AEE8F9E237EA90E00B26F12 /* HomeViewController.swift */,
 				5AEE8FA6237EA95100B26F12 /* CreateEventViewController.swift */,
+				5A2A2B2A2381527400481608 /* EventDetailedViewController.swift */,
 				5AEE8FA8237EA95C00B26F12 /* EventViewController.swift */,
+				5A1DA87B237EBA5900EBA8EF /* EventCell.swift */,
+				5A1DA87D237EBDEC00EBA8EF /* EventOutput.swift */,
 				5A1DA879237EB53300EBA8EF /* TabBarViewController.swift */,
 				8DA3E630237EBB4F0034C87D /* EventInput.swift */,
 			);
@@ -278,10 +287,13 @@
 				7E674863237C4E6A0092DA82 /* AppDelegate.swift in Sources */,
 				7E674865237C4E6A0092DA82 /* SceneDelegate.swift in Sources */,
 				5AEE8FA9237EA95C00B26F12 /* EventViewController.swift in Sources */,
+				5A1DA87E237EBDEC00EBA8EF /* EventOutput.swift in Sources */,
+				5A1DA87C237EBA5900EBA8EF /* EventCell.swift in Sources */,
 				5A1DA87A237EB53300EBA8EF /* TabBarViewController.swift in Sources */,
 				8DA3E631237EBB4F0034C87D /* EventInput.swift in Sources */,
 				5AEE8F9F237EA90E00B26F12 /* HomeViewController.swift in Sources */,
 				5AEE8FA7237EA95100B26F12 /* CreateEventViewController.swift in Sources */,
+				5A2A2B2B2381527400481608 /* EventDetailedViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
