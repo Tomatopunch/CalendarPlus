@@ -41,7 +41,7 @@
             </objects>
             <point key="canvasLocation" x="1353.6231884057972" y="-620.08928571428567"/>
         </scene>
-        <!--Item-->
+        <!--View Controller-->
         <scene sceneID="P5e-da-X0W">
             <objects>
                 <viewController id="a5l-jJ-N6D" sceneMemberID="viewController">
@@ -60,14 +60,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="cb4-fE-MgO"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="mF6-Bv-Fop"/>
+                    <tabBarItem key="tabBarItem" selectedImage="calendar.circle" catalog="system" systemItem="featured" id="mF6-Bv-Fop"/>
                     <navigationItem key="navigationItem" id="4vV-Wu-0lx"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z2z-07-Glo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1353.6231884057972" y="377.67857142857139"/>
+            <point key="canvasLocation" x="-764" y="1120"/>
         </scene>
-        <!--Item-->
+        <!--events-->
         <scene sceneID="ICr-P8-Luv">
             <objects>
                 <viewController id="ZbF-pM-fva" customClass="EventViewController" customModule="CalendarPlus" customModuleProvider="target" sceneMemberID="viewController">
@@ -86,13 +86,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Orw-FH-ADf"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="154-N2-t4N"/>
+                    <tabBarItem key="tabBarItem" title="events" image="sparkles" catalog="system" id="154-N2-t4N"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iI3-S2-uU3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="184" y="1142"/>
+            <point key="canvasLocation" x="241" y="1120"/>
         </scene>
-        <!--Item-->
+        <!--CreateEvent-->
         <scene sceneID="jLf-4z-mcr">
             <objects>
                 <viewController id="GCx-3J-qz7" customClass="CreateEventViewController" customModule="CalendarPlus" customModuleProvider="target" sceneMemberID="viewController">
@@ -111,11 +111,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="lm2-Mh-O7f"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="K3v-6I-bp4"/>
+                    <tabBarItem key="tabBarItem" title="CreateEvent" image="pencil" catalog="system" id="K3v-6I-bp4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WnK-pW-uDE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1445" y="1107"/>
+            <point key="canvasLocation" x="1175" y="1120"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="qvJ-JY-6oF">
@@ -173,4 +173,9 @@
             <point key="canvasLocation" x="242" y="378"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="calendar.circle" catalog="system" width="64" height="60"/>
+        <image name="pencil" catalog="system" width="64" height="56"/>
+        <image name="sparkles" catalog="system" width="56" height="64"/>
+    </resources>
 </document>
