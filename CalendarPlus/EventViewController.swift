@@ -28,8 +28,8 @@ class EventViewController: UIViewController {
         
         var tempEvents: [Event] = []
         
-        let event1 = Event(eventImage: UIImage(systemName: "person")!, eventDate: "2019/11/12", eventTitle: "yeet")
-        let event2 = Event(eventImage: UIImage(systemName: "person")!, eventDate: "2019/11/12", eventTitle: "yeet")
+        let event1 = Event(eventImage: UIImage(systemName: "person")!, eventDate: "2019/11/12", eventTitle: "yeet", eventDescription: "yeetus")
+        let event2 = Event(eventImage: UIImage(systemName: "person")!, eventDate: "2019/11/12", eventTitle: "yeet", eventDescription: "yeetus")
         
         //appending the object to the array
         tempEvents.append(event1)
@@ -37,7 +37,12 @@ class EventViewController: UIViewController {
         
         return tempEvents
     }
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "MasterToDetail" {
+            let destVC = segue.destination as! EventDetailedViewController
+            destVC.event = sender as? Event
+        }
+    }
 
 
 }
@@ -59,5 +64,10 @@ extension EventViewController: UITableViewDataSource, UITableViewDelegate{
         
         return cell
         
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let event = events[indexPath.row]
+        performSegue(withIdentifier: "MasterToDetail", sender: event)
     }
 }
