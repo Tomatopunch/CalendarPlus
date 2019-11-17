@@ -30,14 +30,14 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="EiP-Qd-YaV">
-                                <rect key="frame" x="62" y="474" width="290" height="97.5"/>
+                                <rect key="frame" x="62" y="474.66666666666674" width="290" height="97"/>
                                 <color key="tintColor" red="0.18823529410000001" green="0.67843137249999996" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="4XT-Ti-r8u"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CalendarPlus" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="fPU-5v-mFh">
-                                <rect key="frame" x="124" y="105" width="167" height="26.5"/>
+                                <rect key="frame" x="124" y="105" width="167" height="26.333333333333343"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -68,7 +68,7 @@
             </objects>
             <point key="canvasLocation" x="1353.6231884057972" y="-620.08928571428567"/>
         </scene>
-        <!--Item-->
+        <!--Calendar-->
         <scene sceneID="P5e-da-X0W">
             <objects>
                 <viewController id="a5l-jJ-N6D" sceneMemberID="viewController">
@@ -87,14 +87,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="cb4-fE-MgO"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="mF6-Bv-Fop"/>
+                    <tabBarItem key="tabBarItem" title="Calendar" image="calendar.circle" catalog="system" id="mF6-Bv-Fop"/>
                     <navigationItem key="navigationItem" id="4vV-Wu-0lx"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z2z-07-Glo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1353.6231884057972" y="377.67857142857139"/>
         </scene>
-        <!--Item-->
+        <!--Events-->
         <scene sceneID="ICr-P8-Luv">
             <objects>
                 <viewController id="ZbF-pM-fva" customClass="EventViewController" customModule="CalendarPlus" customModuleProvider="target" sceneMemberID="viewController">
@@ -169,7 +169,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Orw-FH-ADf"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="154-N2-t4N"/>
+                    <tabBarItem key="tabBarItem" title="Events" image="pencil" catalog="system" selectedImage="pencil" id="154-N2-t4N"/>
                     <connections>
                         <outlet property="eventTableView" destination="gXr-bO-Qev" id="c56-g8-pxH"/>
                         <segue destination="bmE-Oe-gtz" kind="show" identifier="MasterToDetail" id="jNC-4P-Hhn"/>
@@ -243,7 +243,7 @@
             </objects>
             <point key="canvasLocation" x="823" y="1142"/>
         </scene>
-        <!--Item-->
+        <!--Create Event-->
         <scene sceneID="jLf-4z-mcr">
             <objects>
                 <viewController id="GCx-3J-qz7" customClass="CreateEventViewController" customModule="CalendarPlus" customModuleProvider="target" sceneMemberID="viewController">
@@ -251,22 +251,80 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="createevents" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hPO-HU-YId">
-                                <rect key="frame" x="123" y="265" width="99" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create Event" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hPO-HU-YId">
+                                <rect key="frame" x="40" y="118" width="334" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter eventname:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dFK-dz-IPb">
+                                <rect key="frame" x="40" y="169" width="334" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter description:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZfY-Iy-A6x">
+                                <rect key="frame" x="40" y="233" width="334" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter date:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8rh-bC-LUc">
+                                <rect key="frame" x="40" y="297" width="334" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="QnZ-h2-U6b">
+                                <rect key="frame" x="79" y="604" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KAL-Ai-LKy">
+                                <rect key="frame" x="76" y="391" width="243" height="115"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" backgroundImage="person" catalog="system"/>
+                                <connections>
+                                    <action selector="UIImagePicker:" destination="GCx-3J-qz7" eventType="touchUpInside" id="dra-jw-fgb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="woq-YE-UYq">
+                                <rect key="frame" x="173" y="544" width="49" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="UIButtonSubmitEvent:" destination="GCx-3J-qz7" eventType="touchUpInside" id="kj6-SH-9gx"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="lm2-Mh-O7f" firstAttribute="trailing" secondItem="dFK-dz-IPb" secondAttribute="trailing" constant="40" id="7S6-xb-1Pv"/>
+                            <constraint firstItem="lm2-Mh-O7f" firstAttribute="trailing" secondItem="8rh-bC-LUc" secondAttribute="trailing" constant="40" id="7fx-yq-7xF"/>
+                            <constraint firstItem="hPO-HU-YId" firstAttribute="leading" secondItem="lm2-Mh-O7f" secondAttribute="leading" constant="40" id="7g5-ck-iih"/>
+                            <constraint firstItem="8rh-bC-LUc" firstAttribute="leading" secondItem="lm2-Mh-O7f" secondAttribute="leading" constant="40" id="I5w-OC-b5V"/>
+                            <constraint firstItem="lm2-Mh-O7f" firstAttribute="trailing" secondItem="ZfY-Iy-A6x" secondAttribute="trailing" constant="40" id="MMF-2a-x5C"/>
+                            <constraint firstItem="dFK-dz-IPb" firstAttribute="leading" secondItem="lm2-Mh-O7f" secondAttribute="leading" constant="40" id="MfK-ec-A1x"/>
+                            <constraint firstItem="lm2-Mh-O7f" firstAttribute="trailing" secondItem="hPO-HU-YId" secondAttribute="trailing" constant="40" id="Tf5-fw-xrb"/>
+                            <constraint firstItem="dFK-dz-IPb" firstAttribute="top" secondItem="hPO-HU-YId" secondAttribute="bottom" constant="30" id="Tlq-eD-LbB"/>
+                            <constraint firstItem="8rh-bC-LUc" firstAttribute="top" secondItem="ZfY-Iy-A6x" secondAttribute="bottom" constant="30" id="U8D-ls-REq"/>
+                            <constraint firstItem="hPO-HU-YId" firstAttribute="top" secondItem="lm2-Mh-O7f" secondAttribute="top" constant="30" id="X1q-uW-fHh"/>
+                            <constraint firstItem="ZfY-Iy-A6x" firstAttribute="top" secondItem="dFK-dz-IPb" secondAttribute="bottom" constant="30" id="lMy-Nk-TJH"/>
+                            <constraint firstItem="ZfY-Iy-A6x" firstAttribute="leading" secondItem="lm2-Mh-O7f" secondAttribute="leading" constant="40" id="ncM-QR-kr0"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="lm2-Mh-O7f"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="K3v-6I-bp4"/>
+                    <tabBarItem key="tabBarItem" title="Create Event" image="star.circle" catalog="system" id="K3v-6I-bp4"/>
+                    <connections>
+                        <outlet property="UITextInputEventDate" destination="8rh-bC-LUc" id="dZ7-B8-Bf8"/>
+                        <outlet property="UITextInputEventDescription" destination="ZfY-Iy-A6x" id="dmP-Rt-tmE"/>
+                        <outlet property="UITextInputEventName" destination="dFK-dz-IPb" id="TKr-FM-TdX"/>
+                        <outlet property="UITextViewDisplayTextInput" destination="QnZ-h2-U6b" id="vnW-xG-2sE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WnK-pW-uDE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1445" y="1107"/>
+            <point key="canvasLocation" x="1444.9275362318842" y="1106.9196428571429"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="qvJ-JY-6oF">
@@ -326,5 +384,9 @@
     </scenes>
     <resources>
         <image name="calendar" catalog="system" width="64" height="52"/>
+        <image name="calendar.circle" catalog="system" width="64" height="60"/>
+        <image name="pencil" catalog="system" width="64" height="56"/>
+        <image name="person" catalog="system" width="64" height="58"/>
+        <image name="star.circle" catalog="system" width="64" height="60"/>
     </resources>
 </document>

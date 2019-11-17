@@ -10,6 +10,8 @@ import UIKit
 
 class CreateEventViewController: UIViewController {
 
+    
+    
     @IBOutlet weak var UITextInputEventName: UITextField!
     
     @IBOutlet weak var UITextInputEventDescription: UITextField!
@@ -24,6 +26,7 @@ class CreateEventViewController: UIViewController {
         print("tapped picture")
         showImagePickerController()
     }
+   
     
     
     override func viewDidLoad() {
@@ -52,13 +55,13 @@ class CreateEventViewController: UIViewController {
         
     }
      
-    @IBAction func UIButtonSumbitEvent(_ sender: Any) {
-        
+    @IBAction func UIButtonSubmitEvent(_ sender: Any) {
         ConvertTextInputToString()
         UITextViewDisplayTextInput.text = "Event name: \(UITextInputEventName.text!), Event description: \(UITextInputEventDescription.text!), Event date: \(UITextInputEventDate.text!)"
         clearTextFields()
         
         view.endEditing(true)
+        
     }
     
     private func ConvertTextInputToString(){
