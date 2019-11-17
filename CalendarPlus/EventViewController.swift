@@ -17,26 +17,52 @@ class EventViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        events = createEventArray()
+        noEventAvailable()
         
         eventTableView.delegate = self
         eventTableView.dataSource = self
     
     }
+    // function for checking if event array is empty so the NoEvent cell can be implemented.
+    func noEventAvailable(){
+        if createEventArray().count == 0{
+            events = creatNoEventArray()
+        }
+        else{
+            events = createEventArray()
+        }
+    }
+    
+    //this function is for when there are no events, so it creates a static cell to display that.
+    func creatNoEventArray() -> [Event] {
+        
+        var tempNoEvents: [Event] = []
+        
+        let Noevent = Event(eventImage: UIImage(systemName: "person")!, eventDate: "", eventTitle: "There are no events!", eventDescription: "")
+
+        //appending the object to the array
+        tempNoEvents.append(Noevent)
+
+        
+        return tempNoEvents
+    }
+    
     // function to create the array that contains Event objects.
     func createEventArray() -> [Event] {
         
         var tempEvents: [Event] = []
-        
-        let event1 = Event(eventImage: UIImage(systemName: "person")!, eventDate: "2019/11/12", eventTitle: "yeet", eventDescription: "yeetus")
-        let event2 = Event(eventImage: UIImage(systemName: "person")!, eventDate: "2019/11/12", eventTitle: "yeet", eventDescription: "yeetus")
-        
-        //appending the object to the array
-        tempEvents.append(event1)
-        tempEvents.append(event2)
+//        
+//        let event1 = Event(eventImage: UIImage(systemName: "person")!, eventDate: "2019/11/12", eventTitle: "yeet", eventDescription: "yeetus")
+//        let event2 = Event(eventImage: UIImage(systemName: "person")!, eventDate: "2019/11/12", eventTitle: "yeet", eventDescription: "yeetus")
+//
+//        //appending the object to the array
+//        tempEvents.append(event1)
+//        tempEvents.append(event2)
         
         return tempEvents
     }
+    
+    // preparing for a segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "MasterToDetail" {
             let destVC = segue.destination as! EventDetailedViewController
@@ -66,6 +92,7 @@ extension EventViewController: UITableViewDataSource, UITableViewDelegate{
         
     }
     
+    //preforming the segue
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let event = events[indexPath.row]
         performSegue(withIdentifier: "MasterToDetail", sender: event)

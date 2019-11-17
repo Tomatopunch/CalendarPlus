@@ -23,7 +23,7 @@ class EventDetailedViewController: UIViewController {
 
 
     }
-    
+    //setting the ui for the segue
     func setUI() {
         eventImageView.image =  event?.eventImage
         eventTitleLabel.text = event?.eventTitle
