@@ -12,7 +12,14 @@ class CreateEventViewController: UIViewController {
 
     @IBOutlet weak var UITextInputEventName: UITextField!
     
+    @IBOutlet weak var UITextInputEventDescription: UITextField!
+    
+    @IBOutlet weak var UITextInputEventDate: UITextField!
+    
     @IBOutlet weak var UITextViewDisplayTextInput: UITextView!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTextFields()
@@ -22,6 +29,8 @@ class CreateEventViewController: UIViewController {
     // configureTextFields makes the textinputs editable, for example adding dismiss options for keyboard
     private func configureTextFields() {
         UITextInputEventName.delegate = self
+        UITextInputEventDescription.delegate = self
+        UITextInputEventDate.delegate = self
     }
     
     // function for dismissing keyboard when tapping outside of keyboard
@@ -38,9 +47,26 @@ class CreateEventViewController: UIViewController {
     
      
     @IBAction func UIButtonSumbitEvent(_ sender: Any) {
-        UITextViewDisplayTextInput.text = "Event name: \(UITextInputEventName.text!)"
+        
+        ConvertTextInputToString()
+        UITextViewDisplayTextInput.text = "Event name: \(UITextInputEventName.text!), Event description: \(UITextInputEventDescription.text!), Event date: \(UITextInputEventDate.text!)"
+        clearTextFields()
         view.endEditing(true)
     }
+    
+    private func ConvertTextInputToString(){
+        let tempEventName =  UITextInputEventName.text
+        let tempEventDescription = UITextInputEventDescription.text
+        let tempEventDate = UITextInputEventDate.text
+        let eventInformation = EventInformation(eventName: String(tempEventName!), eventDescription: String(tempEventDescription!), eventDate: String(tempEventDate!))
+        print(eventInformation.eventName)
+    }
+    private func clearTextFields(){
+        UITextInputEventName.text?.removeAll()
+        UITextInputEventDescription.text?.removeAll()
+        UITextInputEventDate.text?.removeAll()
+    }
+    
   
 
 }
