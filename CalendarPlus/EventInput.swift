@@ -9,17 +9,21 @@
 import Foundation
 import UIKit
 class EventInformation{
-    var eventName: String
-    var eventDescription: String
-    var eventDate: String
-    //var eventImage: UIImage
+    var eventName: String?
+    var eventDescription: String?
+    var eventDate: String?
+    var eventImage: UIImage?
     
     
-    init(eventName: String, eventDescription: String, eventDate: String /*eventImage: UIImage*/){
+    init(eventName: String, eventDescription: String, eventDate: String, eventImage: UIImage){
         self.eventName = eventName
         self.eventDescription = eventDescription
         self.eventDate = eventDate
-        //self.eventImage = eventImage
+        self.eventImage = eventImage
+    }
+    
+    init() {
+        
     }
     
 

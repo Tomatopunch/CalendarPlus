@@ -18,6 +18,12 @@ class CreateEventViewController: UIViewController {
     
     @IBOutlet weak var UITextViewDisplayTextInput: UITextView!
     
+    let eventInformation = EventInformation.init()
+    
+    @IBAction func UIImagePicker(_ sender: Any) {
+        print("tapped picture")
+        showImagePickerController()
+    }
     
     
     override func viewDidLoad() {
@@ -40,17 +46,18 @@ class CreateEventViewController: UIViewController {
         view.addGestureRecognizer(tapOnScreen)
         
     }
+    
     @objc func handleTap(){
         view.endEditing(true)
         
     }
-    
      
     @IBAction func UIButtonSumbitEvent(_ sender: Any) {
         
         ConvertTextInputToString()
         UITextViewDisplayTextInput.text = "Event name: \(UITextInputEventName.text!), Event description: \(UITextInputEventDescription.text!), Event date: \(UITextInputEventDate.text!)"
         clearTextFields()
+        
         view.endEditing(true)
     }
     
@@ -58,9 +65,11 @@ class CreateEventViewController: UIViewController {
         let tempEventName =  UITextInputEventName.text
         let tempEventDescription = UITextInputEventDescription.text
         let tempEventDate = UITextInputEventDate.text
-        let eventInformation = EventInformation(eventName: String(tempEventName!), eventDescription: String(tempEventDescription!), eventDate: String(tempEventDate!))
-        print(eventInformation.eventName)
+        eventInformation.eventName = String(tempEventName!)
+        eventInformation.eventDescription = String(tempEventDescription!)
+        eventInformation.eventDate = String(tempEventDate!)
     }
+    
     private func clearTextFields(){
         UITextInputEventName.text?.removeAll()
         UITextInputEventDescription.text?.removeAll()
@@ -71,11 +80,33 @@ class CreateEventViewController: UIViewController {
 
 }
 
-extension CreateEventViewController: UITextFieldDelegate {
+extension CreateEventViewController: UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     // This function makes the return button close the keyboard
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    //function display images to pick when clicking on the image button
+    func showImagePickerController(){
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        imagePickerController.allowsEditing = true
+        imagePickerController.sourceType = .photoLibrary
+        present(imagePickerController, animated: true, completion: nil)
+        
+    }
+    // function specifing which image to be picked, eiter an edited image(cropped image by user..) or just the original image without any alterations
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage{
+            
+            eventInformation.eventImage = editedImage
+            
+        } else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
+            eventInformation.eventImage = originalImage
+            
+        }
+        
+        dismiss(animated: true, completion: nil)
     }
 }
