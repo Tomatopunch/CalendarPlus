@@ -19,6 +19,7 @@
 		7E67486F237C4E6B0092DA82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E67486D237C4E6B0092DA82 /* LaunchScreen.storyboard */; };
 		7E67487A237C4E6B0092DA82 /* CalendarPlusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E674879237C4E6B0092DA82 /* CalendarPlusTests.swift */; };
 		7E674885237C4E6C0092DA82 /* CalendarPlusUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E674884237C4E6C0092DA82 /* CalendarPlusUITests.swift */; };
+		8DA3E631237EBB4F0034C87D /* EventInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA3E630237EBB4F0034C87D /* EventInput.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		7E674880237C4E6B0092DA82 /* CalendarPlusUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalendarPlusUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E674884237C4E6C0092DA82 /* CalendarPlusUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarPlusUITests.swift; sourceTree = "<group>"; };
 		7E674886237C4E6C0092DA82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8DA3E630237EBB4F0034C87D /* EventInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventInput.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				5AEE8FA6237EA95100B26F12 /* CreateEventViewController.swift */,
 				5AEE8FA8237EA95C00B26F12 /* EventViewController.swift */,
 				5A1DA879237EB53300EBA8EF /* TabBarViewController.swift */,
+				8DA3E630237EBB4F0034C87D /* EventInput.swift */,
 			);
 			path = CalendarPlus;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 				7E674865237C4E6A0092DA82 /* SceneDelegate.swift in Sources */,
 				5AEE8FA9237EA95C00B26F12 /* EventViewController.swift in Sources */,
 				5A1DA87A237EB53300EBA8EF /* TabBarViewController.swift in Sources */,
+				8DA3E631237EBB4F0034C87D /* EventInput.swift in Sources */,
 				5AEE8F9F237EA90E00B26F12 /* HomeViewController.swift in Sources */,
 				5AEE8FA7237EA95100B26F12 /* CreateEventViewController.swift in Sources */,
 			);
