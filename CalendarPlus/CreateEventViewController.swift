@@ -11,6 +11,7 @@ import UIKit
 class CreateEventViewController: UIViewController {
 
     
+    @IBOutlet weak var UIImageViewDisplayImage: UIImageView!
     
     @IBOutlet weak var UITextInputEventName: UITextField!
     
@@ -21,6 +22,8 @@ class CreateEventViewController: UIViewController {
     @IBOutlet weak var UITextViewDisplayTextInput: UITextView!
     
     let eventInformation = EventInformation.init()
+    //initalize somewhere else??
+    //private var datePicker: UIDatePicker
     
     @IBAction func UIImagePicker(_ sender: Any) {
         print("tapped picture")
@@ -33,7 +36,7 @@ class CreateEventViewController: UIViewController {
         super.viewDidLoad()
         configureTextFields()
         configureTapOnScreen()
-        
+        setDateForTextInput()
     }
     // configureTextFields makes the textinputs editable, for example adding dismiss options for keyboard
     private func configureTextFields() {
@@ -47,6 +50,20 @@ class CreateEventViewController: UIViewController {
         
         let tapOnScreen = UITapGestureRecognizer(target: self, action: #selector(CreateEventViewController.handleTap))
         view.addGestureRecognizer(tapOnScreen)
+        
+    }
+    private func setDateForTextInput(){
+        
+        let datePicker = UIDatePicker()
+        datePicker.datePickerMode = .date
+        datePicker.addTarget(self, action: #selector(dateChanged(datePicker:)), for: .valueChanged)
+        UITextInputEventDate.inputView = datePicker
+    }
+    
+    @objc func dateChanged(datePicker: UIDatePicker){
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        UITextInputEventDate.text = dateFormatter.string(from: datePicker.date)
         
     }
     
@@ -96,6 +113,8 @@ extension CreateEventViewController: UITextFieldDelegate, UIImagePickerControlle
         imagePickerController.delegate = self
         imagePickerController.allowsEditing = true
         imagePickerController.sourceType = .photoLibrary
+        
+        
         present(imagePickerController, animated: true, completion: nil)
         
     }
@@ -104,6 +123,18 @@ extension CreateEventViewController: UITextFieldDelegate, UIImagePickerControlle
         if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage{
             
             eventInformation.eventImage = editedImage
+            // temporary work need
+            if let temp = editedImage.pngData(){
+                print(temp)
+                if let tempImage = UIImage(data: temp){
+                            print(tempImage)
+                               UIImageViewDisplayImage.image = tempImage
+                           }
+            }
+           
+            
+            
+            
             
         } else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
             eventInformation.eventImage = originalImage
