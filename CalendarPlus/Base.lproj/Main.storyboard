@@ -300,6 +300,33 @@
                                 <rect key="frame" x="264" y="531" width="130" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fce-pp-iL3">
+                                <rect key="frame" x="40" y="341" width="334" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rcx-4c-3h0">
+                                <rect key="frame" x="40" y="147" width="334" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yeI-yC-zYT">
+                                <rect key="frame" x="40" y="211" width="334" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w8R-2K-MWy">
+                                <rect key="frame" x="40" y="275" width="334" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -313,14 +340,21 @@
                             <constraint firstItem="dFK-dz-IPb" firstAttribute="top" secondItem="hPO-HU-YId" secondAttribute="bottom" constant="30" id="Tlq-eD-LbB"/>
                             <constraint firstItem="8rh-bC-LUc" firstAttribute="top" secondItem="ZfY-Iy-A6x" secondAttribute="bottom" constant="30" id="U8D-ls-REq"/>
                             <constraint firstItem="hPO-HU-YId" firstAttribute="top" secondItem="lm2-Mh-O7f" secondAttribute="top" constant="30" id="X1q-uW-fHh"/>
+                            <constraint firstItem="fce-pp-iL3" firstAttribute="leading" secondItem="lm2-Mh-O7f" secondAttribute="leading" constant="40" id="csv-dc-Ms7"/>
+                            <constraint firstItem="fce-pp-iL3" firstAttribute="top" secondItem="8rh-bC-LUc" secondAttribute="bottom" constant="10" id="dw1-Nx-ene"/>
                             <constraint firstItem="ZfY-Iy-A6x" firstAttribute="top" secondItem="dFK-dz-IPb" secondAttribute="bottom" constant="30" id="lMy-Nk-TJH"/>
                             <constraint firstItem="ZfY-Iy-A6x" firstAttribute="leading" secondItem="lm2-Mh-O7f" secondAttribute="leading" constant="40" id="ncM-QR-kr0"/>
+                            <constraint firstItem="lm2-Mh-O7f" firstAttribute="trailing" secondItem="fce-pp-iL3" secondAttribute="trailing" constant="40" id="vJD-su-GX6"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lm2-Mh-O7f"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Create Event" image="star.circle" catalog="system" id="K3v-6I-bp4"/>
                     <connections>
                         <outlet property="UIImageViewDisplayImage" destination="p5P-Gd-N2O" id="MvX-6k-PXH"/>
+                        <outlet property="UILabelDisplayDateError" destination="w8R-2K-MWy" id="K0M-Kv-ohX"/>
+                        <outlet property="UILabelDisplayDescriptionError" destination="yeI-yC-zYT" id="r5y-cv-VDO"/>
+                        <outlet property="UILabelDisplayEventNameError" destination="rcx-4c-3h0" id="moO-sn-OrE"/>
+                        <outlet property="UILabelDisplayImageError" destination="fce-pp-iL3" id="RyJ-hc-pmm"/>
                         <outlet property="UITextInputEventDate" destination="8rh-bC-LUc" id="dZ7-B8-Bf8"/>
                         <outlet property="UITextInputEventDescription" destination="ZfY-Iy-A6x" id="dmP-Rt-tmE"/>
                         <outlet property="UITextInputEventName" destination="dFK-dz-IPb" id="TKr-FM-TdX"/>
