@@ -19,8 +19,6 @@ class CreateEventViewController: UIViewController {
     
     @IBOutlet weak var UITextInputEventDate: UITextField!
     
-    @IBOutlet weak var UITextViewDisplayTextInput: UITextView!
-    
     @IBOutlet weak var UILabelDisplayEventNameError: UILabel!
     
     @IBOutlet weak var UILabelDisplayDescriptionError: UILabel!
@@ -77,29 +75,10 @@ class CreateEventViewController: UIViewController {
     }
      
     @IBAction func UIButtonSubmitEvent(_ sender: Any) {
-        // yeetas bort sen
-        if(eventInformation.eventImage == nil){
-            UILabelDisplayImageError.text = "Must pick an image!"
-            
-        }
-        if(UITextInputEventName.text == ""){
-            UILabelDisplayEventNameError.text = "Must enter an eventname"
-            
-        }
-        if(UITextInputEventDescription.text == ""){
-            UILabelDisplayDescriptionError.text = "Must enter a description"
-
-        }
-        if(UITextInputEventDate.text == ""){
-            UILabelDisplayDateError.text = "Must enter a date"
-            
-        }
-        if(eventInformation.eventImage == nil || UITextInputEventName.text == "" || UITextInputEventDescription.text == "" || UITextInputEventDate.text == ""){
+        if(validateInput() == false){
             return
         }
-        // till hit
         ConvertTextInputToString()
-        UITextViewDisplayTextInput.text = "Event name: \(UITextInputEventName.text!), Event description: \(UITextInputEventDescription.text!), Event date: \(UITextInputEventDate.text!)"
         clearTextFields()
         
         view.endEditing(true)
@@ -119,13 +98,50 @@ class CreateEventViewController: UIViewController {
         UITextInputEventName.text?.removeAll()
         UITextInputEventDescription.text?.removeAll()
         UITextInputEventDate.text?.removeAll()
-        //onödig skit ska bort
         UILabelDisplayImageError.text = ""
         UILabelDisplayEventNameError.text = ""
         UILabelDisplayDescriptionError.text = ""
         UILabelDisplayDateError.text = ""
+        UIImageViewDisplayImage.image = nil
         
     }
+    private func validateInput() -> Bool{
+        
+        if(eventInformation.eventImage == nil){
+            UILabelDisplayImageError.text = "Must pick an image!"
+            
+        }
+        else{
+            UILabelDisplayImageError.text = ""
+        }
+        if(UITextInputEventName.text == ""){
+            UILabelDisplayEventNameError.text = "Must enter an eventname"
+            
+        }
+        else{
+            UILabelDisplayEventNameError.text = ""
+        }
+        if(UITextInputEventDescription.text == ""){
+            UILabelDisplayDescriptionError.text = "Must enter a description"
+
+        }
+        else{
+            UILabelDisplayDescriptionError.text = ""
+        }
+        if(UITextInputEventDate.text == ""){
+            UILabelDisplayDateError.text = "Must enter a date"
+            
+        }
+        else{
+            UILabelDisplayDateError.text = ""
+        }
+        if(eventInformation.eventImage == nil || UITextInputEventName.text == "" || UITextInputEventDescription.text == "" || UITextInputEventDate.text == ""){
+            return false
+        }
+        return true
+        
+    }
+    
     
     
   
