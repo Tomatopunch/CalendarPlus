@@ -15,13 +15,6 @@ class EventInformation{
     var eventImage: Data?
     
     
-    init(eventName: String, eventDescription: String, eventDate: String, eventImage: Data){
-        self.eventName = eventName
-        self.eventDescription = eventDescription
-        self.eventDate = eventDate
-        self.eventImage = eventImage
-    }
-    
     init() {
         
     }

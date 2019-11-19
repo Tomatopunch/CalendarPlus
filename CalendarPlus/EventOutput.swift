@@ -13,15 +13,20 @@ import UIKit
 
 class Event {
     
-    var eventImage: UIImage
-    var eventDate: String
-    var eventTitle: String
-    var eventDescription: String
+    var eventImage: Data?
+    var eventDate: String?
+    var eventTitle: String?
+    var eventDescription: String?
+
     
-    init(eventImage: UIImage, eventDate: String, eventTitle: String, eventDescription: String){
+    init(eventImage: Data, eventDate: String, eventTitle: String, eventDescription: String){
         self.eventImage = eventImage
         self.eventDate = eventDate
         self.eventTitle = eventTitle
         self.eventDescription = eventDescription
+    }
+    
+    init(){
+        
     }
 }

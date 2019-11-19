@@ -27,6 +27,8 @@ class CreateEventViewController: UIViewController {
     
     @IBOutlet weak var UILabelDisplayDateError: UILabel!
     
+    let database = Database.init()
+    
     let eventInformation = EventInformation.init()
    
     @IBAction func UIImagePicker(_ sender: Any) {
@@ -81,8 +83,12 @@ class CreateEventViewController: UIViewController {
         ConvertTextInputToString()
         clearTextFields()
         
+        
         view.endEditing(true)
         
+        database.addEvent(eventTitle: eventInformation.eventName!, eventDescription: eventInformation.eventDescription!, eventDate: eventInformation.eventDate!, eventImage: eventInformation.eventImage!)
+        
+        database.listEvent()
     }
     
     private func ConvertTextInputToString(){
@@ -92,6 +98,8 @@ class CreateEventViewController: UIViewController {
         eventInformation.eventName = String(tempEventName!)
         eventInformation.eventDescription = String(tempEventDescription!)
         eventInformation.eventDate = String(tempEventDate!)
+        
+        
     }
     
     private func clearTextFields(){

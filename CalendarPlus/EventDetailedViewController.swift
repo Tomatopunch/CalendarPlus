@@ -25,11 +25,13 @@ class EventDetailedViewController: UIViewController {
     }
     //setting the ui for the segue
     func setUI() {
-        eventImageView.image =  event?.eventImage
+        let converter = UIImage(data: event!.eventImage!)
+        eventImageView.image = converter
         eventTitleLabel.text = event?.eventTitle
         eventDescriptionLabel.text = event?.eventDescription
         eventDateLabel.text = event?.eventDate
     }
 
 
+    
 }

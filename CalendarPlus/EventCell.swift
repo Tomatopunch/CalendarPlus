@@ -15,10 +15,9 @@ class EventCell: UITableViewCell {
     @IBOutlet weak var UIImageEventDate: UILabel!
     
     //where the cell gets initiated.
-    //color scheeme rgb(48,173,99)
     func setEvent(event: Event){
-        
-        UIImageViewEventImage.image = event.eventImage
+        let converter = UIImage(data: event.eventImage!)
+        UIImageViewEventImage.image = converter
         UILabelEventTitle.text = event.eventTitle
         UIImageEventDate.text = event.eventDate
     }

@@ -9,7 +9,7 @@
 import Foundation
 import SQLite
 
-class database {
+class Database {
     
     var database: Connection!
     let eventsTable = Table("events")
@@ -18,6 +18,8 @@ class database {
     let eventDescription = Expression<String>("eventDescription")
     let eventDate = Expression<String>("eventDate")
     let eventImage = Expression<Data>("eventImage")
+    
+    let events = Event.init()
     
     init() {
         let createTable = self.eventsTable.create(ifNotExists: true) { (table) in
@@ -55,17 +57,18 @@ class database {
         
     }
     
-    func getEvents() -> [Row]{
-        var eventsArray: [Row] = []
+    func getEvents() -> [Event]{
+        var tempEventsArray: [Event] = []
         do {
             let events = try self.database.prepare(self.eventsTable)
             for event in events {
-                eventsArray.append(event)
+                let tempEvent = Event(eventImage: event[self.eventImage], eventDate: event[self.eventDate], eventTitle: event[self.eventTitle], eventDescription: event[self.eventDescription])
+                tempEventsArray.append(tempEvent)
             }
         } catch {
             print(error)
         }
-        return eventsArray
+        return tempEventsArray
     }
     
     func deleteEvent(eventId: Int) {
@@ -77,6 +80,16 @@ class database {
         } catch {
             print(error)
         }
-        
+    }
+    
+    func listEvent() {
+        do {
+            let events = try self.database.prepare(self.eventsTable)
+            for event in events{
+                print("userId: \(event[self.id]), title: \(event[self.eventTitle]), description: \(event[self.eventDescription]), eventdate: \(event[self.eventDate]), title: \(event[self.eventImage])")
+            }
+        } catch {
+            print(error)
+        }
     }
 }
