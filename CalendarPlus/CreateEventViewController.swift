@@ -32,8 +32,9 @@ class CreateEventViewController: UIViewController {
     let eventInformation = EventInformation.init()
    
     @IBAction func UIImagePicker(_ sender: Any) {
-        print("tapped picture")
-        showImagePickerController()
+        
+        chooseSource()
+        //showImagePickerController()
     }
    
     override func viewDidLoad() {
@@ -151,8 +152,6 @@ class CreateEventViewController: UIViewController {
     }
     
     
-    
-  
 
 }
 
@@ -182,21 +181,43 @@ extension CreateEventViewController: UITextFieldDelegate, UIImagePickerControlle
                 UIImageViewDisplayImage.image = tempImg
             }
             
-           
-            /*if let temp = editedImage.pngData(){
-                print(temp)
-                if let tempImage = UIImage(data: temp){
-                            print(tempImage)
-                               UIImageViewDisplayImage.image = tempImage
-                           }
-            }*/
-           
-            
         } else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
+            
             eventInformation.eventImage = originalImage.pngData()
+            if let tempImg = UIImage(data: eventInformation.eventImage!){
+                          UIImageViewDisplayImage.image = tempImg
+                      }
             
         }
         
+        dismiss(animated: true, completion: nil)
+    }
+    // displays options of choosing camera or photolibrary as source
+    func chooseSource(){
+        
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        let actionSheet = UIAlertController(title: "Photo source", message: "Choose a source", preferredStyle: .actionSheet)
+        
+        actionSheet.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: {(action:UIAlertAction) in
+            self.showImagePickerController()
+            
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: {(action: UIAlertAction) in
+            if UIImagePickerController.isSourceTypeAvailable(.camera){
+                imagePickerController.sourceType = .camera
+                self.present(imagePickerController, animated: true, completion: nil)
+            }else{
+                print("Camera is not available")
+            }
+        }))
+        actionSheet.addAction(UIAlertAction(title: "cancel", style: .cancel, handler: nil))
+        
+        self.present(actionSheet, animated: true, completion: nil)
+        
+    }
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
 }
