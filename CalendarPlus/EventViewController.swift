@@ -18,14 +18,18 @@ class EventViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        noEventAvailable()
-        
         eventTableView.delegate = self
         eventTableView.dataSource = self
     
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        getAvailableEvents()
+        eventTableView.reloadData()
+        
+    }
     // function for checking if event array is empty so the NoEvent cell can be implemented.
-    func noEventAvailable(){
+    func getAvailableEvents(){
         if database.getEvents().count == 0{
             events = creatNoEventArray()
         }
