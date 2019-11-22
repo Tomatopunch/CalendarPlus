@@ -8,6 +8,7 @@
 
 import UIKit
 import FSCalendar
+import SQLite
 
 class CalendarViewController: UIViewController {
     
@@ -22,21 +23,52 @@ class CalendarViewController: UIViewController {
 }
 
 extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource {
+//
+//    func calendar(_ calendar: FSCalendar, subtitleFor date: Date) -> String? {
+//
+//        print(date)
+//        let database = Database.init()
+//
+//        var tempEventArray: [Event] = []
+//        tempEventArray = database.getEvents()
+//
+//        let dateString = "11 / 21 / 2019"
+//        var eventDate = "not found"
+//        print(dateString)
+//
+//        for event in tempEventArray {
+//            print(event.eventDate!)
+//            if dateString == event.eventDate!{
+//
+//                eventDate = "oliver är gay"
+//               return eventDate
+//            }
+//            else {
+//
+//            }
+//        }
+//    return eventDate
+//    }¨
+
     
-    // FSCalendarDelegate
-    /*
-    func calendar(_ calendar: FSCalendar, subtitleFor date: Date) -> String? {
-        return "yeet"
+    
+
+    func calendar(calendar: FSCalendar!, hasEventForDate date: NSDate!) -> Bool {
+        
+        return true
     }
- *//*
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         
-        let dateSelected = Calendar.current.dateComponents([Calendar.Component.day, Calendar.Component.month, Calendar.Component.year], from: self.calendarView.currentPage)
-        print(dateSelected)
+        let dateSelected = Calendar.current.dateComponents([Calendar.Component.day, Calendar.Component.month, Calendar.Component.year], from: calendar.selectedDate!)
+        
+//        print(dateSelected.month!, "/",dateSelected.day!,"/",dateSelected.year!)
+//
+//        print(dateSelected)
         
         
     }
-    */
+ 
+    
   
 
 }

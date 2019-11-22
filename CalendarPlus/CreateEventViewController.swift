@@ -67,7 +67,7 @@ class CreateEventViewController: UIViewController {
     
     @objc func dateChanged(datePicker: UIDatePicker){
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM/dd/yyyy"
+        dateFormatter.dateFormat = "MM / dd / yyyy"
         UITextInputEventDate.text = dateFormatter.string(from: datePicker.date)
         
     }
