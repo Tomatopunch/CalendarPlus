@@ -33,6 +33,3 @@ class CustomSegue: UIStoryboardSegue {
         }, completion: {success in fromViewController.present(toViewController, animated: false, completion: nil)})
     }
 }
-
-
-}
