@@ -11,14 +11,33 @@ import FSCalendar
 
 class CalendarViewController: UIViewController {
     
+    @IBOutlet weak var calendarView: FSCalendar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        calendarView.delegate = self
+        calendarView.dataSource = self
     }
     
 }
 
-extension CalendarViewController: FSCalendarDataSource, FSCalendarDelegate {
+extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource {
     
-    
+    // FSCalendarDelegate
+    /*
+    func calendar(_ calendar: FSCalendar, subtitleFor date: Date) -> String? {
+        return "yeet"
+    }
+ *//*
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        
+        let dateSelected = Calendar.current.dateComponents([Calendar.Component.day, Calendar.Component.month, Calendar.Component.year], from: self.calendarView.currentPage)
+        print(dateSelected)
+        
+        
+    }
+    */
+  
+
 }
+
