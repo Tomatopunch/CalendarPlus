@@ -8,27 +8,44 @@
 
 import XCTest
 @testable import CalendarPlus
+import UIKit
+import SQLite
 
 class CalendarPlusTests: XCTestCase {
 
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
+    let database = Database.init()
+    let eventviewcontroller = EventViewController.init()
+    let event = Event.init()
+    var tempNoEvents: [Event] = []
 
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
+    
+    
+    func testDatabaseIsEmpty(){
+        let databaseArray = database.getEvents()
+        tempNoEvents = eventviewcontroller.creatNoEventArray()
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        XCTAssertEqual(tempNoEvents.count, 1) // always one for default
+        XCTAssertNotNil(databaseArray, "not nil")
+        XCTAssertNotNil(tempNoEvents, "not nil")
+        
     }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testcreateNoEventArray(){
+        tempNoEvents = eventviewcontroller.creatNoEventArray()
+        
+        XCTAssertEqual(tempNoEvents[0].eventTitle, "There are no events!")
+        
+        XCTAssertEqual(tempNoEvents[0].eventDate, "")
+        
+        XCTAssertEqual(tempNoEvents[0].eventDescription, "")
+        
+        let testImage = UIImage(systemName: "person")
+        let testImageData = testImage?.pngData()
+        
+        let arrayImage = tempNoEvents[0].eventImage
+        
+        XCTAssertEqual(arrayImage, testImageData)
+       
     }
 
 }
