@@ -20,7 +20,7 @@ class HomeViewController: UIViewController {
         setCalendarButton()
         setTitleText()
     }
-    
+    // MARK: setUIHomeScreen
     //Gives the calendar button rounded corners
     //Sets the style for the calendar button
     func setCalendarButton() {
