@@ -24,7 +24,7 @@ class JsonDataViewController: UIViewController {
                   error == nil else {
                   print(error?.localizedDescription ?? "Response Error")
                   return }
-            do{
+            do {
                 //here dataResponse received from a network request
                 let jsonResponse = try JSONSerialization.jsonObject(with:
                                        dataResponse, options: [])
