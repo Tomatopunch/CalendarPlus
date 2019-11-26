@@ -14,6 +14,7 @@ class EventCell: UITableViewCell {
     @IBOutlet weak var UILabelEventTitle: UILabel!
     @IBOutlet weak var UIImageEventDate: UILabel!
     
+    // MARK: setEvent
     //where the cell gets initiated.
     func setEvent(event: Event){
         let converter = UIImage(data: event.eventImage!)

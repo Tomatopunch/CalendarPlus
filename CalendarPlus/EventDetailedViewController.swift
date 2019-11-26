@@ -23,6 +23,7 @@ class EventDetailedViewController: UIViewController {
 
 
     }
+    // MARK: setUI
     //setting the ui for the segue
     func setUI() {
         let converter = UIImage(data: event!.eventImage!)

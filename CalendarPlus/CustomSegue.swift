@@ -14,7 +14,7 @@ class CustomSegue: UIStoryboardSegue {
         
         scale()
     }
-    
+    // MARK: Animation
     func scale() {
         let toViewController = self.destination
         let fromViewController = self.source

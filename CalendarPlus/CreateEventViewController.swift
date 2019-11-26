@@ -31,18 +31,14 @@ class CreateEventViewController: UIViewController {
     
     let eventInformation = EventInformation.init()
    
-    @IBAction func UIImagePicker(_ sender: Any) {
-        
-        chooseSource()
-        //showImagePickerController()
-    }
-   
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTextFields()
         configureTapOnScreen()
         setDateForTextInput()
     }
+    
+    // MARK: configureTextFields
     // configureTextFields makes the textinputs editable, for example adding dismiss options for keyboard
     private func configureTextFields() {
         UITextInputEventName.delegate = self
@@ -50,33 +46,35 @@ class CreateEventViewController: UIViewController {
         UITextInputEventDate.delegate = self
     }
     
+    // MARK: configureTapOnScreen
     // function for dismissing keyboard when tapping outside of keyboard
     private func configureTapOnScreen(){
-        
         let tapOnScreen = UITapGestureRecognizer(target: self, action: #selector(CreateEventViewController.handleTap))
         view.addGestureRecognizer(tapOnScreen)
-        
     }
+    
+    // MARK: setDateForTextInput
     private func setDateForTextInput(){
-        
         let datePicker = UIDatePicker()
         datePicker.datePickerMode = .date
         datePicker.addTarget(self, action: #selector(dateChanged(datePicker:)), for: .valueChanged)
         UITextInputEventDate.inputView = datePicker
     }
     
+    // MARK: dateChanged
     @objc func dateChanged(datePicker: UIDatePicker){
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/yyyy"
         UITextInputEventDate.text = dateFormatter.string(from: datePicker.date)
-        
     }
     
+    // MARK: handleTap
     @objc func handleTap(){
         view.endEditing(true)
         
     }
-     
+    
+     // MARK: UIButtonSubmitEvent
     @IBAction func UIButtonSubmitEvent(_ sender: Any) {
         if(validateInput() == false){
             return
@@ -84,14 +82,18 @@ class CreateEventViewController: UIViewController {
         ConvertTextInputToString()
         clearTextFields()
         
-        
         view.endEditing(true)
         
         database.addEvent(eventTitle: eventInformation.eventName!, eventDescription: eventInformation.eventDescription!, eventDate: eventInformation.eventDate!, eventImage: eventInformation.eventImage!)
-        
         database.listEvent()
     }
     
+    // MARK: UIImagePicker
+    @IBAction func UIImagePicker(_ sender: Any) {
+           chooseSource()
+       }
+    
+    // MARK: convertTextInputToString
     private func ConvertTextInputToString(){
         let tempEventName =  UITextInputEventName.text
         let tempEventDescription = UITextInputEventDescription.text
@@ -99,10 +101,9 @@ class CreateEventViewController: UIViewController {
         eventInformation.eventName = String(tempEventName!)
         eventInformation.eventDescription = String(tempEventDescription!)
         eventInformation.eventDate = String(tempEventDate!)
-        
-        
     }
     
+    // MARK: clearTextFields
     private func clearTextFields(){
         UITextInputEventName.text?.removeAll()
         UITextInputEventDescription.text?.removeAll()
@@ -112,8 +113,9 @@ class CreateEventViewController: UIViewController {
         UILabelDisplayDescriptionError.text = ""
         UILabelDisplayDateError.text = ""
         UIImageViewDisplayImage.image = nil
-        
     }
+    
+    // MARK: ValidateInput
     private func validateInput() -> Bool{
         
         if(eventInformation.eventImage == nil){
@@ -148,20 +150,22 @@ class CreateEventViewController: UIViewController {
             return false
         }
         return true
-        
     }
     
-    
-
 }
 
+// MARK: Extensions
 extension CreateEventViewController: UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    
+    // MARK: textFieldShouldreturn
     // This function makes the return button close the keyboard
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
+    
+    // MARK:UIImagePickerController
     //function display images to pick when clicking on the image button
     func showImagePickerController(){
         let imagePickerController = UIImagePickerController()
@@ -171,6 +175,7 @@ extension CreateEventViewController: UITextFieldDelegate, UIImagePickerControlle
         present(imagePickerController, animated: true, completion: nil)
         
     }
+    
     // function specifing which image to be picked, eiter an edited image(cropped image by user..) or just the original image without any alterations
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage{

@@ -9,8 +9,7 @@
 import Foundation
 import UIKit
 
-//this class creates an Event object including the following below.
-
+//This class creates an Event object including the following below.
 class Event {
     
     var eventImage: Data?

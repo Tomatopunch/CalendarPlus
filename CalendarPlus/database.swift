@@ -10,7 +10,8 @@ import Foundation
 import SQLite
 
 class Database {
-    
+    // MARK:InitDatabase
+    // Setting up connection to database, Setting up attributes to create table
     var database: Connection!
     let eventsTable = Table("events")
     let id = Expression<Int>("id")
@@ -22,6 +23,7 @@ class Database {
     let events = Event.init()
     
     init() {
+        //creating a variable that holds the whole table
         let createTable = self.eventsTable.create(ifNotExists: true) { (table) in
             table.column(self.id, primaryKey: true)
             table.column(self.eventTitle)
@@ -29,7 +31,7 @@ class Database {
             table.column(self.eventDate)
             table.column(self.eventImage)
         }
-        
+        //Putting a path for database file and creating the table
          do{
             let documentDirectory = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
             let fileUrl = documentDirectory.appendingPathComponent("events").appendingPathExtension("sqlite3")
@@ -44,7 +46,9 @@ class Database {
            }
         
     }
+    // MARK: DatabaseFunctions
     
+    // Adding a new event
     func addEvent(eventTitle: String, eventDescription: String, eventDate: String, eventImage: Data) {
         
         let insertEvent = self.eventsTable.insert(self.eventTitle <- eventTitle, self.eventDescription <- eventDescription, self.eventDate <- eventDate, self.eventImage <- eventImage)
@@ -57,6 +61,7 @@ class Database {
         
     }
     
+    //Gets all the existing events
     func getEvents() -> [Event]{
         var tempEventsArray: [Event] = []
         do {
@@ -71,6 +76,7 @@ class Database {
         return tempEventsArray
     }
     
+    //deleting a specific event
     func deleteEvent(eventId: Int) {
         
         let event = self.eventsTable.filter(self.id == eventId)
