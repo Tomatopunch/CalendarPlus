@@ -19,6 +19,7 @@
 		5AEE8F9F237EA90E00B26F12 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEE8F9E237EA90E00B26F12 /* HomeViewController.swift */; };
 		5AEE8FA7237EA95100B26F12 /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEE8FA6237EA95100B26F12 /* CreateEventViewController.swift */; };
 		5AEE8FA9237EA95C00B26F12 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEE8FA8237EA95C00B26F12 /* EventViewController.swift */; };
+		7E27A5B72389481D00BFC8A5 /* JsonDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E27A5B62389481D00BFC8A5 /* JsonDataViewController.swift */; };
 		7E674863237C4E6A0092DA82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E674862237C4E6A0092DA82 /* AppDelegate.swift */; };
 		7E674865237C4E6A0092DA82 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E674864237C4E6A0092DA82 /* SceneDelegate.swift */; };
 		7E674867237C4E6A0092DA82 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E674866237C4E6A0092DA82 /* ViewController.swift */; };
@@ -127,6 +128,7 @@
 		5AEE8FA8237EA95C00B26F12 /* EventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 		5C8668DB809CE10F267F9C1C /* Pods-CalendarPlus-CalendarPlusUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalendarPlus-CalendarPlusUITests.debug.xcconfig"; path = "Target Support Files/Pods-CalendarPlus-CalendarPlusUITests/Pods-CalendarPlus-CalendarPlusUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		612E9FEDB0690ECC009862EE /* Pods_CalendarPlus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CalendarPlus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E27A5B62389481D00BFC8A5 /* JsonDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonDataViewController.swift; sourceTree = "<group>"; };
 		7E67485F237C4E6A0092DA82 /* CalendarPlus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalendarPlus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E674862237C4E6A0092DA82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7E674864237C4E6A0092DA82 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 				5AADD39C2383D5D700D13191 /* database.swift */,
 				7E6AFABD2387D3B40099D7CD /* CalendarViewController.swift */,
 				5ADAB7912387E5C600BFFDB8 /* CustomSegue.swift */,
+				7E27A5B62389481D00BFC8A5 /* JsonDataViewController.swift */,
 			);
 			path = CalendarPlus;
 			sourceTree = "<group>";
@@ -583,6 +586,7 @@
 			files = (
 				7E674867237C4E6A0092DA82 /* ViewController.swift in Sources */,
 				7E674863237C4E6A0092DA82 /* AppDelegate.swift in Sources */,
+				7E27A5B72389481D00BFC8A5 /* JsonDataViewController.swift in Sources */,
 				5AADD39D2383D5D700D13191 /* database.swift in Sources */,
 				7E674865237C4E6A0092DA82 /* SceneDelegate.swift in Sources */,
 				5ADAB7922387E5C600BFFDB8 /* CustomSegue.swift in Sources */,
