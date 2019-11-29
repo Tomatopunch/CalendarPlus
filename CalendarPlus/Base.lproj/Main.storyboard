@@ -36,8 +36,8 @@
                                     <constraint firstAttribute="height" constant="100" id="4XT-Ti-r8u"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CalendarPlus" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="fPU-5v-mFh">
-                                <rect key="frame" x="124" y="61" width="128" height="26.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CalendarPlus" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="fPU-5v-mFh">
+                                <rect key="frame" x="100" y="61" width="182" height="26.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -46,14 +46,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="rAq-4d-1Kc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="2mO-t9-cij"/>
-                            <constraint firstItem="fPU-5v-mFh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="124" id="341-hv-Dd1"/>
+                            <constraint firstItem="fPU-5v-mFh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="4NX-Yl-XMq"/>
                             <constraint firstItem="EiP-Qd-YaV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="62" id="5ZQ-KS-Nzd"/>
                             <constraint firstItem="fPU-5v-mFh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="17" id="Dpu-NV-WuF"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="rAq-4d-1Kc" secondAttribute="bottom" constant="20" id="R1n-xn-pKA"/>
                             <constraint firstItem="rAq-4d-1Kc" firstAttribute="top" secondItem="EiP-Qd-YaV" secondAttribute="bottom" constant="219" id="SCN-Fu-Uux"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EiP-Qd-YaV" secondAttribute="trailing" constant="62" id="gaD-aN-Ujf"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fPU-5v-mFh" secondAttribute="trailing" constant="123" id="hZK-wF-cOR"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rAq-4d-1Kc" secondAttribute="trailing" constant="30" id="y29-Wq-LC8"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fPU-5v-mFh" secondAttribute="trailing" constant="93" id="yOF-BI-PlZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -66,7 +66,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1353.6231884057972" y="-620.08928571428567"/>
+            <point key="canvasLocation" x="1352.8" y="-620.23988005997012"/>
         </scene>
         <!--Calendar-->
         <scene sceneID="P5e-da-X0W">
@@ -570,6 +570,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fhv-rb-jZg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
