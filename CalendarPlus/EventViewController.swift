@@ -23,6 +23,11 @@ class EventViewController: UIViewController {
         eventTableView.dataSource = self
     
     }
+    	
+    @IBAction func UIButtonDelete() {
+        viewWillAppear(true)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         getAvailableEvents()
@@ -101,6 +106,8 @@ extension EventViewController: UITableViewDataSource, UITableViewDelegate{
     }
     
 }
+
+//MARK: Extension
 extension EventViewController: EventCellDelegate{
     func eventDelete(row: Int) {
           database.deleteEvent(eventId: events[row].eventId!)

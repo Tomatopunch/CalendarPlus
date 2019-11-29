@@ -22,12 +22,15 @@ class CalendarViewController: UIViewController {
     @IBOutlet weak var UILabelPosition: UILabel!
     @IBOutlet weak var UILabelTemp: UILabel!
     
+    @IBOutlet weak var UIViewWeather: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         calendarView.delegate = self
         calendarView.dataSource = self
         fetchJsonData()
+        
+        UIViewWeather.layer.cornerRadius = 10.0
     }
     
     func fetchJsonData(){
