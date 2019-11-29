@@ -202,7 +202,8 @@ extension CreateEventViewController: UITextFieldDelegate, UIImagePickerControlle
         
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
-        let actionSheet = UIAlertController(title: "Photo source", message: "Choose a source", preferredStyle: .actionSheet)
+        let actionSheet = UIAlertController()
+        //let actionSheet = UIAlertController(title: "Photo source", message: "Choose image", preferredStyle: .actionSheet)
         
         actionSheet.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: {(action:UIAlertAction) in
             self.showImagePickerController()
@@ -217,7 +218,7 @@ extension CreateEventViewController: UITextFieldDelegate, UIImagePickerControlle
                 print("Camera is not available")
             }
         }))
-        actionSheet.addAction(UIAlertAction(title: "cancel", style: .cancel, handler: nil))
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
         self.present(actionSheet, animated: true, completion: nil)
         
