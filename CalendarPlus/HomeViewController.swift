@@ -10,34 +10,20 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+    let setDesign = UIdesign.init()
     let backgroundImageView = UIImageView()
     @IBOutlet weak var viewCalendarButton: UIButton!
     @IBOutlet weak var calendarPlusTitle: UILabel!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setbackground()
-        setCalendarButton()
-        setTitleText()
-    }
-    // MARK: setUIHomeScreen
-    //Gives the calendar button rounded corners
-    //Sets the style for the calendar button
-    func setCalendarButton() {
-        viewCalendarButton.backgroundColor = UIColor.init(red:48/255, green: 173/255, blue: 99/255, alpha: 1)
-        viewCalendarButton.layer.cornerRadius = 25.0
-        viewCalendarButton.tintColor = UIColor.white
-    }
-    
-    //Sets the title text fontstyle and color
-    func setTitleText() {
-        let titleTextFont = UIFont(name: "HelveticaNeue-Thin", size: 25.0)!
-        calendarPlusTitle.font = titleTextFont
-        calendarPlusTitle.textColor = UIColor.white
+        setDesign.setTitleText(titleLabel: calendarPlusTitle)
+        setDesign.setButton(button: viewCalendarButton)
     }
     
     //Sets a background for the entire homepage view
-    //change the picture later on
     func setbackground() {
         
         view.addSubview(backgroundImageView)
