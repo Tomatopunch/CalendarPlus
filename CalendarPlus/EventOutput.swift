@@ -16,13 +16,14 @@ class Event {
     var eventDate: String?
     var eventTitle: String?
     var eventDescription: String?
-
+    var eventId: Int?
     
-    init(eventImage: Data, eventDate: String, eventTitle: String, eventDescription: String){
+    init(eventImage: Data, eventDate: String, eventTitle: String, eventDescription: String, eventId: Int){
         self.eventImage = eventImage
         self.eventDate = eventDate
         self.eventTitle = eventTitle
         self.eventDescription = eventDescription
+        self.eventId = eventId
     }
     
     init(){

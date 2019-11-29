@@ -11,6 +11,7 @@ import UIKit
 class EventViewController: UIViewController {
 
     @IBOutlet weak var eventTableView: UITableView!
+
     
     var events: [Event] = []
     let database = Database.init()
@@ -26,8 +27,10 @@ class EventViewController: UIViewController {
         super.viewWillAppear(animated)
         getAvailableEvents()
         eventTableView.reloadData()
+      
         
     }
+    
     // MARK: getAvailableEvents
     // function for checking if event array is empty so the NoEvent cell can be implemented.
     func getAvailableEvents(){
@@ -36,6 +39,7 @@ class EventViewController: UIViewController {
         }
         else{
             events = database.getEvents()
+            
         }
     }
     // MARK: createNoEventArray
@@ -45,12 +49,11 @@ class EventViewController: UIViewController {
         var tempNoEvents: [Event] = []
         let tempImage = UIImage(named: "notify")
         let imageData = tempImage!.pngData()
-        let Noevent = Event(eventImage: imageData!, eventDate: "", eventTitle: "There are no events!", eventDescription: "")
+        let Noevent = Event(eventImage: imageData!, eventDate: "", eventTitle: "There are no events!", eventDescription: "", eventId: 1000000000000000)
 
         //appending the object to the array
         tempNoEvents.append(Noevent)
 
-        
         return tempNoEvents
     }
     // MARK: prepareForSegue
@@ -79,8 +82,13 @@ extension EventViewController: UITableViewDataSource, UITableViewDelegate{
         let event = events[indexPath.row]
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "eventCell") as! EventCell
+        var hidden = false
+        if event.eventId == 1000000000000000{
+            hidden = true
+        }
+        cell.setEvent(event: event, indexPath: indexPath, hidden: hidden)
         
-        cell.setEvent(event: event)
+        cell.delegate = self
         
         return cell
         
@@ -91,4 +99,11 @@ extension EventViewController: UITableViewDataSource, UITableViewDelegate{
         let event = events[indexPath.row]
         performSegue(withIdentifier: "MasterToDetail", sender: event)
     }
+    
 }
+extension EventViewController: EventCellDelegate{
+    func eventDelete(row: Int) {
+          database.deleteEvent(eventId: events[row].eventId!)
+    }
+}
+

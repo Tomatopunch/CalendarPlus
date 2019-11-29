@@ -13,7 +13,7 @@ class Database {
     // MARK:InitDatabase
     // Setting up connection to database, Setting up attributes to create table
     var database: Connection!
-    let eventsTable = Table("events")
+    let eventsTable = Table("event")
     let id = Expression<Int>("id")
     let eventTitle = Expression<String>("eventTitle")
     let eventDescription = Expression<String>("eventDescription")
@@ -21,6 +21,7 @@ class Database {
     let eventImage = Expression<Data>("eventImage")
     
     let events = Event.init()
+    var db: OpaquePointer?
     
     init() {
         //creating a variable that holds the whole table
@@ -34,7 +35,7 @@ class Database {
         //Putting a path for database file and creating the table
          do{
             let documentDirectory = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-            let fileUrl = documentDirectory.appendingPathComponent("events").appendingPathExtension("sqlite3")
+            let fileUrl = documentDirectory.appendingPathComponent("event").appendingPathExtension("sqlite3")
             let database = try Connection(fileUrl.path)
             self.database = database
             
@@ -46,6 +47,7 @@ class Database {
            }
         
     }
+
     // MARK: DatabaseFunctions
     
     // Adding a new event
@@ -67,7 +69,7 @@ class Database {
         do {
             let events = try self.database.prepare(self.eventsTable)
             for event in events {
-                let tempEvent = Event(eventImage: event[self.eventImage], eventDate: event[self.eventDate], eventTitle: event[self.eventTitle], eventDescription: event[self.eventDescription])
+                let tempEvent = Event(eventImage: event[self.eventImage], eventDate: event[self.eventDate], eventTitle: event[self.eventTitle], eventDescription: event[self.eventDescription], eventId: event[self.id])
                 tempEventsArray.append(tempEvent)
             }
         } catch {
@@ -79,14 +81,51 @@ class Database {
     //deleting a specific event
     func deleteEvent(eventId: Int) {
         
-        let event = self.eventsTable.filter(self.id == eventId)
-        let deleteUser = event.delete()
+        let event = eventsTable.filter(self.id == eventId)
+        
+        let delete = event.delete()
         do {
-            try self.database.run(deleteUser)
+            try database.run(delete)
         } catch {
             print(error)
         }
-    }
+      
+        }
+        
+//           let deleteStatementStirng = "DELETE FROM event WHERE id = ?;"
+//
+//            var deleteStatement: OpaquePointer? = nil
+//            if sqlite3_prepare_v2(db, deleteStatementStirng, -1, &deleteStatement, nil) == SQLITE_OK {
+//
+//                sqlite3_bind_int(deleteStatement, 1, Int32(eventId))
+//
+//                if sqlite3_step(deleteStatement) == SQLITE_DONE {
+//                    print("Successfully deleted row.")
+//                } else {
+//                    print("Could not delete row.")
+//                }
+//            } else {
+//                print("DELETE statement could not be prepared")
+//            }
+//
+//
+//
+//            sqlite3_finalize(deleteStatement)
+//
+//
+//            print("delete")
+//
+//
+//        }
+//
+//        let event = self.eventsTable.filter(self.id == eventId)
+//        let deleteUser = event.delete()
+//        do {
+//            try self.database.run(deleteUser)
+//        } catch {
+//            print(error)
+//        }
+    
     
     func listEvent() {
         do {

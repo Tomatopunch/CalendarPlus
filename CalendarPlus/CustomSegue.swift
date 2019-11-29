@@ -28,7 +28,7 @@ class CustomSegue: UIStoryboardSegue {
         
         containerView?.addSubview(toViewController.view)
         
-        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut, animations: {
+        UIView.animate(withDuration: 0.1, delay: 0, options: .curveEaseInOut, animations: {
             toViewController.view.transform = CGAffineTransform.identity
         }, completion: {success in fromViewController.present(toViewController, animated: false, completion: nil)})
     }
