@@ -12,6 +12,13 @@
 		5A1DA87C237EBA5900EBA8EF /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1DA87B237EBA5900EBA8EF /* EventCell.swift */; };
 		5A1DA87E237EBDEC00EBA8EF /* EventOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1DA87D237EBDEC00EBA8EF /* EventOutput.swift */; };
 		5A2A2B2B2381527400481608 /* EventDetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2A2B2A2381527400481608 /* EventDetailedViewController.swift */; };
+		5A9D38BE23910340005000D9 /* OpenWeatherAPIStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9D38BD23910340005000D9 /* OpenWeatherAPIStruct.swift */; };
+		5A9D38C023910363005000D9 /* CloudsStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9D38BF23910363005000D9 /* CloudsStruct.swift */; };
+		5A9D38C42391038A005000D9 /* MainStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9D38C32391038A005000D9 /* MainStruct.swift */; };
+		5A9D38C62391039E005000D9 /* CoordStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9D38C52391039E005000D9 /* CoordStruct.swift */; };
+		5A9D38C8239103B1005000D9 /* SysStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9D38C7239103B1005000D9 /* SysStruct.swift */; };
+		5A9D38CA239103D2005000D9 /* WeatherStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9D38C9239103D2005000D9 /* WeatherStruct.swift */; };
+		5A9D38CC239103E0005000D9 /* WindStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9D38CB239103E0005000D9 /* WindStruct.swift */; };
 		5AADD34F2383D50E00D13191 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AADD2B12383D47700D13191 /* SQLite.framework */; };
 		5AADD3502383D50E00D13191 /* SQLite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5AADD2B12383D47700D13191 /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5AADD39D2383D5D700D13191 /* database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AADD39C2383D5D700D13191 /* database.swift */; };
@@ -120,6 +127,13 @@
 		5A1DA87B237EBA5900EBA8EF /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		5A1DA87D237EBDEC00EBA8EF /* EventOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventOutput.swift; sourceTree = "<group>"; };
 		5A2A2B2A2381527400481608 /* EventDetailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailedViewController.swift; sourceTree = "<group>"; };
+		5A9D38BD23910340005000D9 /* OpenWeatherAPIStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherAPIStruct.swift; sourceTree = "<group>"; };
+		5A9D38BF23910363005000D9 /* CloudsStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudsStruct.swift; sourceTree = "<group>"; };
+		5A9D38C32391038A005000D9 /* MainStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainStruct.swift; sourceTree = "<group>"; };
+		5A9D38C52391039E005000D9 /* CoordStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordStruct.swift; sourceTree = "<group>"; };
+		5A9D38C7239103B1005000D9 /* SysStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SysStruct.swift; sourceTree = "<group>"; };
+		5A9D38C9239103D2005000D9 /* WeatherStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherStruct.swift; sourceTree = "<group>"; };
+		5A9D38CB239103E0005000D9 /* WindStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindStruct.swift; sourceTree = "<group>"; };
 		5AADD2A62383D47700D13191 /* SQLite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = "SQLite.swift-master/SQLite.xcodeproj"; sourceTree = "<group>"; };
 		5AADD39C2383D5D700D13191 /* database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = database.swift; sourceTree = "<group>"; };
 		5ADAB7912387E5C600BFFDB8 /* CustomSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegue.swift; sourceTree = "<group>"; };
@@ -251,6 +265,13 @@
 				7E6AFABD2387D3B40099D7CD /* CalendarViewController.swift */,
 				5ADAB7912387E5C600BFFDB8 /* CustomSegue.swift */,
 				7E27A5B62389481D00BFC8A5 /* JsonDataViewController.swift */,
+				5A9D38BD23910340005000D9 /* OpenWeatherAPIStruct.swift */,
+				5A9D38BF23910363005000D9 /* CloudsStruct.swift */,
+				5A9D38C32391038A005000D9 /* MainStruct.swift */,
+				5A9D38C52391039E005000D9 /* CoordStruct.swift */,
+				5A9D38C7239103B1005000D9 /* SysStruct.swift */,
+				5A9D38C9239103D2005000D9 /* WeatherStruct.swift */,
+				5A9D38CB239103E0005000D9 /* WindStruct.swift */,
 			);
 			path = CalendarPlus;
 			sourceTree = "<group>";
@@ -586,11 +607,18 @@
 			files = (
 				7E674867237C4E6A0092DA82 /* ViewController.swift in Sources */,
 				7E674863237C4E6A0092DA82 /* AppDelegate.swift in Sources */,
+				5A9D38C8239103B1005000D9 /* SysStruct.swift in Sources */,
+				5A9D38C023910363005000D9 /* CloudsStruct.swift in Sources */,
+				5A9D38CC239103E0005000D9 /* WindStruct.swift in Sources */,
 				7E27A5B72389481D00BFC8A5 /* JsonDataViewController.swift in Sources */,
+				5A9D38C42391038A005000D9 /* MainStruct.swift in Sources */,
 				5AADD39D2383D5D700D13191 /* database.swift in Sources */,
 				7E674865237C4E6A0092DA82 /* SceneDelegate.swift in Sources */,
+				5A9D38CA239103D2005000D9 /* WeatherStruct.swift in Sources */,
 				5ADAB7922387E5C600BFFDB8 /* CustomSegue.swift in Sources */,
 				5AEE8FA9237EA95C00B26F12 /* EventViewController.swift in Sources */,
+				5A9D38BE23910340005000D9 /* OpenWeatherAPIStruct.swift in Sources */,
+				5A9D38C62391039E005000D9 /* CoordStruct.swift in Sources */,
 				5A1DA87E237EBDEC00EBA8EF /* EventOutput.swift in Sources */,
 				5A1DA87C237EBA5900EBA8EF /* EventCell.swift in Sources */,
 				5A1DA87A237EB53300EBA8EF /* TabBarViewController.swift in Sources */,

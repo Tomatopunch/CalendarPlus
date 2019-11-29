@@ -22,16 +22,16 @@ class CalendarPlusTests: XCTestCase {
     
     func testDatabaseIsEmpty(){
         let databaseArray = database.getEvents()
-        tempNoEvents = eventviewcontroller.creatNoEventArray()
+        tempNoEvents = eventviewcontroller.createNoEventArray()
 
         XCTAssertEqual(tempNoEvents.count, 1) // always one for default
-        XCTAssertNotNil(databaseArray, "not nil")
-        XCTAssertNotNil(tempNoEvents, "not nil")
+        XCTAssertNotNil(databaseArray, "database is not empty!")
+        XCTAssertNotNil(tempNoEvents, "NoEvent array is more or less than one!")
         
     }
     
     func testcreateNoEventArray(){
-        tempNoEvents = eventviewcontroller.creatNoEventArray()
+        tempNoEvents = eventviewcontroller.createNoEventArray()
         
         XCTAssertEqual(tempNoEvents[0].eventTitle, "There are no events!")
         
@@ -39,7 +39,7 @@ class CalendarPlusTests: XCTestCase {
         
         XCTAssertEqual(tempNoEvents[0].eventDescription, "")
         
-        let testImage = UIImage(systemName: "person")
+        let testImage = UIImage(named: "notify")
         let testImageData = testImage?.pngData()
         
         let arrayImage = tempNoEvents[0].eventImage

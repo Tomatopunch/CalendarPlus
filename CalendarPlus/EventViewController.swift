@@ -43,7 +43,7 @@ class EventViewController: UIViewController {
     func createNoEventArray() -> [Event] {
         
         var tempNoEvents: [Event] = []
-        let tempImage = UIImage(systemName: "person")
+        let tempImage = UIImage(named: "notify")
         let imageData = tempImage!.pngData()
         let Noevent = Event(eventImage: imageData!, eventDate: "", eventTitle: "There are no events!", eventDescription: "")
 
