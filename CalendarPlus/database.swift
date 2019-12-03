@@ -19,7 +19,6 @@ class Database {
     let eventDescription = Expression<String>("eventDescription")
     let eventDate = Expression<String>("eventDate")
     let eventImage = Expression<Data>("eventImage")
-    
     let events = Event.init()
     var db: OpaquePointer?
     
@@ -33,48 +32,57 @@ class Database {
             table.column(self.eventImage)
         }
         //Putting a path for database file and creating the table
-         do{
+        do {
+            
             let documentDirectory = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
             let fileUrl = documentDirectory.appendingPathComponent("event").appendingPathExtension("sqlite3")
             let database = try Connection(fileUrl.path)
-            self.database = database
-            
-            try self.database.run(createTable)
                 
-           
-           } catch {
-               print(error)
-           }
-        
+            self.database = database
+            try self.database.run(createTable)
+            
+         }
+         catch {
+            
+            print(error)
+        }
     }
 
     // MARK: DatabaseFunctions
-    
     // Adding a new event
     func addEvent(eventTitle: String, eventDescription: String, eventDate: String, eventImage: Data) {
         
         let insertEvent = self.eventsTable.insert(self.eventTitle <- eventTitle, self.eventDescription <- eventDescription, self.eventDate <- eventDate, self.eventImage <- eventImage)
         
         do {
+            
             try self.database.run(insertEvent)
-        } catch {
+        }
+        catch {
+            
             print(error)
         }
-        
     }
     
     //Gets all the existing events
-    func getEvents() -> [Event]{
+    func getEvents() -> [Event] {
         var tempEventsArray: [Event] = []
+        
         do {
+            
             let events = try self.database.prepare(self.eventsTable)
             for event in events {
+                
                 let tempEvent = Event(eventImage: event[self.eventImage], eventDate: event[self.eventDate], eventTitle: event[self.eventTitle], eventDescription: event[self.eventDescription], eventId: event[self.id])
+                
                 tempEventsArray.append(tempEvent)
             }
-        } catch {
+        }
+        catch {
+            
             print(error)
         }
+        
         return tempEventsArray
     }
     
@@ -82,58 +90,30 @@ class Database {
     func deleteEvent(eventId: Int) {
         
         let event = eventsTable.filter(self.id == eventId)
-        
         let delete = event.delete()
+        
         do {
             try database.run(delete)
-        } catch {
+        }
+        catch {
+            
             print(error)
         }
-      
-        }
-        
-//           let deleteStatementStirng = "DELETE FROM event WHERE id = ?;"
-//
-//            var deleteStatement: OpaquePointer? = nil
-//            if sqlite3_prepare_v2(db, deleteStatementStirng, -1, &deleteStatement, nil) == SQLITE_OK {
-//
-//                sqlite3_bind_int(deleteStatement, 1, Int32(eventId))
-//
-//                if sqlite3_step(deleteStatement) == SQLITE_DONE {
-//                    print("Successfully deleted row.")
-//                } else {
-//                    print("Could not delete row.")
-//                }
-//            } else {
-//                print("DELETE statement could not be prepared")
-//            }
-//
-//
-//
-//            sqlite3_finalize(deleteStatement)
-//
-//
-//            print("delete")
-//
-//
-//        }
-//
-//        let event = self.eventsTable.filter(self.id == eventId)
-//        let deleteUser = event.delete()
-//        do {
-//            try self.database.run(deleteUser)
-//        } catch {
-//            print(error)
-//        }
-    
+    }
     
     func listEvent() {
+        
         do {
+            
             let events = try self.database.prepare(self.eventsTable)
-            for event in events{
+            
+            for event in events {
+                
                 print("userId: \(event[self.id]), title: \(event[self.eventTitle]), description: \(event[self.eventDescription]), eventdate: \(event[self.eventDate]), title: \(event[self.eventImage])")
             }
-        } catch {
+        }
+        catch {
+            
             print(error)
         }
     }

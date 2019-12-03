@@ -16,15 +16,14 @@ class CustomSegue: UIStoryboardSegue {
     }
     // MARK: Animation
     func scale() {
+        
         let toViewController = self.destination
         let fromViewController = self.source
-        
         let containerView = fromViewController.view.superview
         let originalCenter = fromViewController.view.center
         
         toViewController.view.transform = CGAffineTransform(scaleX: 0.05, y: 0.05)
         toViewController.view.center = originalCenter
-        
         
         containerView?.addSubview(toViewController.view)
         

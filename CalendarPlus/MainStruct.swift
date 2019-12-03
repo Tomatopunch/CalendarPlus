@@ -9,6 +9,7 @@
 import Foundation
 // MARK: - Main
 struct Main: Codable {
+    
     let temp: Double
     let pressure, humidity, tempMin: Int
     let tempMax: Double

@@ -10,6 +10,7 @@ import Foundation
 
 // MARK: - Weather
 struct Weather: Codable {
+    
     let id: Int
     let main, weatherDescription, icon: String
 

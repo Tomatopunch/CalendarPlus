@@ -10,29 +10,32 @@ import UIKit
 
 class EventDetailedViewController: UIViewController {
 
-    @IBOutlet weak var eventImageView: UIImageView!
-    @IBOutlet weak var eventTitleLabel: UILabel!
-    @IBOutlet weak var eventDescriptionLabel: UILabel!
-    @IBOutlet weak var eventDateLabel: UILabel!
+    @IBOutlet weak var UIImageEventImage: UIImageView!
+    @IBOutlet weak var UILabelEventTitle: UILabel!
+    @IBOutlet weak var UILabelEventDescription: UILabel!
+    @IBOutlet weak var UILabelEventDate: UILabel!
     
     var event: Event?
+    let uiDesign = UIdesign.init()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
-
-
     }
+    
     // MARK: setUI
     //setting the ui for the segue
     func setUI() {
+        
         let converter = UIImage(data: event!.eventImage!)
-        eventImageView.image = converter
-        eventTitleLabel.text = event?.eventTitle
-        eventDescriptionLabel.text = event?.eventDescription
-        eventDateLabel.text = event?.eventDate
+        
+        UIImageEventImage.image = converter
+        UILabelEventTitle.text = event?.eventTitle
+        UILabelEventDescription.text = event?.eventDescription
+        UILabelEventDate.text = event?.eventDate
+        
+        uiDesign.setTitleText(titleLabel: UILabelEventTitle)
+        uiDesign.setSubTitleText(titleLabel: UILabelEventDate)
+        uiDesign.setSubTitleText(titleLabel: UILabelEventDescription)
     }
-
-
-    
 }

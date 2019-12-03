@@ -10,18 +10,16 @@ import UIKit
 
 class EventViewController: UIViewController {
 
-    @IBOutlet weak var eventTableView: UITableView!
+    @IBOutlet weak var UITableViewEventTable: UITableView!
 
-    
     var events: [Event] = []
     let database = Database.init()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        eventTableView.delegate = self
-        eventTableView.dataSource = self
-    
+        UITableViewEventTable.delegate = self
+        UITableViewEventTable.dataSource = self
     }
     	
     @IBAction func UIButtonDelete() {
@@ -30,19 +28,20 @@ class EventViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        getAvailableEvents()
-        eventTableView.reloadData()
-      
         
+        getAvailableEvents()
+        UITableViewEventTable.reloadData()
     }
     
+ 
     // MARK: getAvailableEvents
     // function for checking if event array is empty so the NoEvent cell can be implemented.
-    func getAvailableEvents(){
-        if database.getEvents().count == 0{
+    func getAvailableEvents() {
+        
+        if database.getEvents().count == 0 {
             events = createNoEventArray()
         }
-        else{
+        else {
             events = database.getEvents()
             
         }
@@ -61,38 +60,39 @@ class EventViewController: UIViewController {
 
         return tempNoEvents
     }
+    
     // MARK: prepareForSegue
     // preparing for a segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if segue.identifier == "MasterToDetail" {
             let destVC = segue.destination as! EventDetailedViewController
             destVC.event = sender as? Event
         }
     }
-
-
 }
 // MARK: Extension
-extension EventViewController: UITableViewDataSource, UITableViewDelegate{
-    
+extension EventViewController: UITableViewDataSource, UITableViewDelegate {
     
     // MARK:TableViewFuncs
     //for how many number of cells there should be.
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         return events.count
     }
-    //creates every cell using the func "setEvent".
     
+    //creates every cell using the func "setEvent".
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let event = events[indexPath.row]
         
+        let event = events[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "eventCell") as! EventCell
         var hidden = false
-        if event.eventId == 1000000000000000{
+        
+        if event.eventId == 1000000000000000 {
             hidden = true
         }
-        cell.setEvent(event: event, indexPath: indexPath, hidden: hidden)
         
+        cell.setEvent(event: event, indexPath: indexPath, hidden: hidden)
         cell.delegate = self
         
         return cell
@@ -101,16 +101,20 @@ extension EventViewController: UITableViewDataSource, UITableViewDelegate{
     
     //preforming the segue
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         let event = events[indexPath.row]
+        
         performSegue(withIdentifier: "MasterToDetail", sender: event)
     }
     
 }
 
 //MARK: Extension
-extension EventViewController: EventCellDelegate{
+extension EventViewController: EventCellDelegate {
+    
     func eventDelete(row: Int) {
-          database.deleteEvent(eventId: events[row].eventId!)
+        
+        database.deleteEvent(eventId: events[row].eventId!)
     }
 }
 
