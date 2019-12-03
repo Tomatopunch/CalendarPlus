@@ -117,4 +117,3 @@ extension EventViewController: EventCellDelegate {
         database.deleteEvent(eventId: events[row].eventId!)
     }
 }
-

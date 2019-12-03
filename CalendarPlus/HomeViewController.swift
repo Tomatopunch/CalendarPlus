@@ -10,12 +10,12 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
-    let setDesign = UIdesign.init()
-    let backgroundImageView = UIImageView()
     @IBOutlet weak var UIButtonViewCalendarButton: UIButton!
     @IBOutlet weak var UILabelCalendarTitle: UILabel!
     
-    
+    let setDesign = UIdesign.init()
+    let backgroundImageView = UIImageView()
+
     override func viewDidLoad() {
         
         super.viewDidLoad()
