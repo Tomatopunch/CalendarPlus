@@ -10,7 +10,6 @@ import UIKit
 
 class CreateEventViewController: UIViewController {
 
-    
     @IBOutlet weak var UIImageViewDisplayImage: UIImageView!
     @IBOutlet weak var UITextInputEventName: UITextField!
     @IBOutlet weak var UITextInputEventDescription: UITextField!
@@ -91,15 +90,18 @@ class CreateEventViewController: UIViewController {
      // MARK: UIButtonSubmitEvent
     @IBAction func UIButtonSubmitEvent(_ sender: Any) {
         
-        if(validateInput() == false){
+        if(validateInput() == false) {
+            
             return
         }
+        
         ConvertTextInputToString()
-        clearTextFields()
+        clearInputs()
         
         view.endEditing(true)
         
         database.addEvent(eventTitle: eventInformation.eventName!, eventDescription: eventInformation.eventDescription!, eventDate: eventInformation.eventDate!, eventImage: eventInformation.eventImage!)
+        
         database.listEvent()
     }
     
@@ -122,7 +124,7 @@ class CreateEventViewController: UIViewController {
     }
     
     // MARK: clearTextFields
-    private func clearTextFields() {
+    private func clearInputs() {
         
         UITextInputEventName.text?.removeAll()
         UITextInputEventDescription.text?.removeAll()
@@ -137,23 +139,28 @@ class CreateEventViewController: UIViewController {
     // MARK: ValidateInput
     private func validateInput() -> Bool {
         
-        if (eventInformation.eventImage == nil){
+        if (UIImageViewDisplayImage.image == nil) {
+            
             UILabelDisplayImageError.text = "Must pick an image!"
             
         }
         else {
+            
             UILabelDisplayImageError.text = ""
         }
         
-        if (UITextInputEventName.text == ""){
+        if (UITextInputEventName.text == "") {
+            
             UILabelDisplayEventNameError.text = "Must enter an eventname"
             
         }
         else {
+            
             UILabelDisplayEventNameError.text = ""
         }
         
-        if(UITextInputEventDescription.text == ""){
+        if(UITextInputEventDescription.text == "") {
+            
             UILabelDisplayDescriptionError.text = "Must enter a description"
 
         }
@@ -161,15 +168,18 @@ class CreateEventViewController: UIViewController {
             UILabelDisplayDescriptionError.text = ""
         }
         
-        if (UITextInputEventDate.text == ""){
-            UILabelDisplayDateError.text = "Must enter a date"
+        if (UITextInputEventDate.text == "") {
             
+            UILabelDisplayDateError.text = "Must enter a date"
         }
             
         else {
+            
             UILabelDisplayDateError.text = ""
         }
-        if (eventInformation.eventImage == nil || UITextInputEventName.text == "" || UITextInputEventDescription.text == "" || UITextInputEventDate.text == "") {
+        
+        if (UIImageViewDisplayImage.image == nil || UITextInputEventName.text == "" || UITextInputEventDescription.text == "" || UITextInputEventDate.text == "") {
+            
             return false
         }
 
@@ -206,17 +216,20 @@ extension CreateEventViewController: UITextFieldDelegate, UIImagePickerControlle
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            
                 eventInformation.eventImage = editedImage.pngData() // saves UIImage as data
                 
-            if let tempImg = UIImage(data: eventInformation.eventImage!) { // converts data to an UIImage
+            if let tempImg = UIImage(data: eventInformation.eventImage!) {
+                // converts data to an UIImage
                 UIImageViewDisplayImage.image = tempImg
             }
-            
         }
         else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            
             eventInformation.eventImage = originalImage.pngData()
             
             if let tempImg = UIImage(data: eventInformation.eventImage!) {
+                
                 UIImageViewDisplayImage.image = tempImg
             }
         }
@@ -249,6 +262,7 @@ extension CreateEventViewController: UITextFieldDelegate, UIImagePickerControlle
                 self.present(imagePickerController, animated: true, completion: nil)
             }
             else {
+                
                 print("Camera is not available")
             }
         }))

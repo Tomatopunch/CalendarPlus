@@ -19,7 +19,9 @@ class EventDetailedViewController: UIViewController {
     let uiDesign = UIdesign.init()
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        
         setUI()
     }
     

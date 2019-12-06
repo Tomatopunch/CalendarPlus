@@ -9,13 +9,11 @@
 import Foundation
 import UIKit
 class EventInformation{
+    
     var eventName: String?
     var eventDescription: String?
     var eventDate: String?
     var eventImage: Data?
     
-    
-    init() {
-        
-    }
+    init() {}
 }

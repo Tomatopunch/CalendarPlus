@@ -25,6 +25,7 @@ class CalendarViewController: UIViewController {
     let uiDesign = UIdesign.init()
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         calendarView.delegate = self
@@ -38,7 +39,7 @@ class CalendarViewController: UIViewController {
     
     //MARK: SetUI
     //sets the UI for the view
-    func setUI(){
+    func setUI() {
         
         uiDesign.setTitleText(titleLabel: UILabelCalendarTitle)
         uiDesign.setSubTitleText(titleLabel: UILabelTemp)
@@ -51,7 +52,7 @@ class CalendarViewController: UIViewController {
     
     //MARK: fetchJsonData
     //fetching the jsondata for the API
-    func fetchJsonData(){
+    func fetchJsonData() {
 
         let jsonUrlString = "https://api.openweathermap.org/data/2.5/weather?id=2702979&units=metric&appid=b735e62ad63a9bfca66220a9529e85a7"
         guard let url = URL(string: jsonUrlString) else { return }
@@ -66,12 +67,13 @@ class CalendarViewController: UIViewController {
             }
 
             guard let httpResponse = response as? HTTPURLResponse,
-                  (200...299).contains(httpResponse.statusCode) else {
+                  (200...299).contains(httpResponse.statusCode)
+                else {
                     
-                print("Status code not OK")
-                    
-                return
-            }
+                    print("Status code not OK")
+                        
+                    return
+                }
             // running the json data
             guard let data = data else { return }
 

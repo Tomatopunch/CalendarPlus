@@ -16,6 +16,7 @@ class EventViewController: UIViewController {
     let database = Database.init()
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         UITableViewEventTable.delegate = self
@@ -23,10 +24,12 @@ class EventViewController: UIViewController {
     }
     	
     @IBAction func UIButtonDelete() {
+        
         viewWillAppear(true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
         super.viewWillAppear(animated)
         
         getAvailableEvents()
@@ -42,8 +45,8 @@ class EventViewController: UIViewController {
             events = createNoEventArray()
         }
         else {
-            events = database.getEvents()
             
+            events = database.getEvents()
         }
     }
     // MARK: createNoEventArray
@@ -53,10 +56,10 @@ class EventViewController: UIViewController {
         var tempNoEvents: [Event] = []
         let tempImage = UIImage(named: "notify")
         let imageData = tempImage!.pngData()
-        let Noevent = Event(eventImage: imageData!, eventDate: "", eventTitle: "There are no events!", eventDescription: "", eventId: 1000000000000000)
+        let noEvent = Event(eventImage: imageData!, eventDate: "", eventTitle: "There are no events!", eventDescription: "", eventId: 1000000000000000)
 
         //appending the object to the array
-        tempNoEvents.append(Noevent)
+        tempNoEvents.append(noEvent)
 
         return tempNoEvents
     }
@@ -66,7 +69,9 @@ class EventViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "MasterToDetail" {
+            
             let destVC = segue.destination as! EventDetailedViewController
+            
             destVC.event = sender as? Event
         }
     }
@@ -89,6 +94,7 @@ extension EventViewController: UITableViewDataSource, UITableViewDelegate {
         var hidden = false
         
         if event.eventId == 1000000000000000 {
+            
             hidden = true
         }
         

@@ -66,6 +66,7 @@ class Database {
     
     //Gets all the existing events
     func getEvents() -> [Event] {
+        
         var tempEventsArray: [Event] = []
         
         do {
@@ -93,6 +94,7 @@ class Database {
         let delete = event.delete()
         
         do {
+            
             try database.run(delete)
         }
         catch {
@@ -100,7 +102,7 @@ class Database {
             print(error)
         }
     }
-    
+    //just for testing
     func listEvent() {
         
         do {

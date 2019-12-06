@@ -17,8 +17,6 @@ class CalendarPlusTests: XCTestCase {
     let eventviewcontroller = EventViewController.init()
     let event = Event.init()
     var tempNoEvents: [Event] = []
-
-    
     
     func testDatabaseIsEmpty() {
         
@@ -48,7 +46,7 @@ class CalendarPlusTests: XCTestCase {
        
     }
     
-    func testWeather() {
+    func testWeatherDescriptionStrings() {
         
         let calendarViewController = CalendarViewController.init()
         var testValue: Double = -400
@@ -107,7 +105,6 @@ class CalendarPlusTests: XCTestCase {
         let eventTitle = "Test"
         let eventDescription = "Test description"
         let eventId = 0
-        
         
         let event = Event.init(eventImage: eventImage!, eventDate: eventDate, eventTitle: eventTitle, eventDescription: eventDescription, eventId: eventId)
         

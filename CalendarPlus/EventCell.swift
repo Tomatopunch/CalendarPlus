@@ -24,9 +24,9 @@ class EventCell: UITableViewCell {
     //where the cell gets initiated.
     func setEvent(event: Event, indexPath: IndexPath, hidden: Bool) {
         
-        let converter = UIImage(data: event.eventImage!)
+        let imageConverted = UIImage(data: event.eventImage!)
         
-        UIImageViewEventImage.image = converter
+        UIImageViewEventImage.image = imageConverted
         UILabelEventTitle.text = event.eventTitle
         UILabelEventDate.text = event.eventDate
         UIButtonDeleteButton.isHidden = hidden
@@ -46,7 +46,6 @@ class EventCell: UITableViewCell {
         
         delegate?.eventDelete(row: indexPath.row)
     }
-    
 }
 
 protocol EventCellDelegate {

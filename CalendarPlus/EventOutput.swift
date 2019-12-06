@@ -27,7 +27,5 @@ class Event {
         self.eventId = eventId
     }
     
-    init(){
-        
-    }
+    init(){}
 }
